@@ -30,8 +30,7 @@ export const proyecto = {
   },
 
   hero: {
-    // Video principal del drone para el fondo del hero
-    videoUrl: "/assets/dron-vista-torres.mp4",
+    videoUrl: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1773866688/dron-vista-torres_t2i7kd.mp4",
     imagenFallback: "/assets/fachada-frontal-atardecer.png",
   },
 
@@ -71,7 +70,7 @@ export const proyecto = {
       },
       {
         tipo: "video" as const,
-        src: "/assets/render-vista-torres.mp4",
+        src: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1773866689/render-vista-torres_itn2fo.mp4",
         titulo: "Render Final",
         descripcion: "El proyecto terminado en 3D",
       },
@@ -87,28 +86,28 @@ export const proyecto = {
         nombre: "Master Room — Versión A",
         descripcion: "Ambiente sofisticado con iluminación indirecta y acabados en negro y mármol",
         imagen: "/assets/vista-master-room-01.png",
-        video: "/assets/render-master-room-01.mp4",
+        video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1773866684/render-master-room-01_wpfprw.mp4",
       },
       {
         id: 2,
         nombre: "Master Room — Versión B",
         descripcion: "Propuesta luminosa y minimalista con luz natural y tonos neutros",
         imagen: "/assets/vista-master-room-02.png",
-        video: "/assets/render-master-room-02.mp4",
+        video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1773866686/render-master-room-02_ojy34w.mp4",
       },
       {
         id: 3,
         nombre: "Sala · Comedor · Cocina",
         descripcion: "Planta abierta que integra los espacios sociales con iluminación cálida",
         imagen: "/assets/vista-sala-comedor-cocina.png",
-        video: "/assets/seccion-render-sala-comerdor-cocina.mp4",
+        video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1773866688/seccion-render-sala-comerdor-cocina_pdi3d9.mp4",
       },
       {
         id: 4,
         nombre: "Cuarto Gamer",
         descripcion: "Un espacio versátil que demuestra el potencial de cada recámara",
         imagen: "/assets/vista-cuarto-gamer.png",
-        video: "/assets/render-cuarto-gamer.mp4",
+        video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1773866683/render-cuarto-gamer_vxvweh.mp4",
       },
     ],
   },
@@ -121,7 +120,7 @@ export const proyecto = {
   },
 
   drone: {
-    videoUrl: "/assets/dron-vista-torres.mp4",
+    videoUrl: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1773866688/dron-vista-torres_t2i7kd.mp4",
     descripcion: "Una perspectiva privilegiada del desarrollo y su entorno",
   },
 
@@ -149,7 +148,7 @@ export const proyecto = {
       "Video aéreo con dron",
       "Showroom digital con acceso por enlace único",
     ],
-    whatsapp: "525531112718",
+    whatsapp: "525619167822",
     mensajeWhatsapp: "Hola Jorge, quiero conocer más sobre el showroom digital para mi proyecto.",
   },
 } as const;
