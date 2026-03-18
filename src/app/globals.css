@@ -1,0 +1,52 @@
+@import "tailwindcss";
+
+@theme {
+  /* Registrar las fuentes como utilidades de Tailwind v4 */
+  --font-display: var(--font-cormorant), 'Georgia', serif;
+  --font-sans: var(--font-inter), sans-serif;
+}
+
+:root {
+  --color-primario: #C9A96E;
+  --color-fondo: #0A0A0A;
+  --color-texto: #FFFFFF;
+  --color-superficie: #141414;
+  --color-borde: rgba(201, 169, 110, 0.2);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  font-family: var(--font-inter), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: var(--font-cormorant), 'Georgia', serif;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-borde);
+}
+
+/* Ocultar indicador de desarrollo de Next.js */
+nextjs-portal {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-fondo);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-primario);
+  border-radius: 2px;
+}
