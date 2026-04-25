@@ -43,7 +43,7 @@ export default function Mapa() {
               src={proyecto.mapa.embedUrl}
               width="100%"
               height="100%"
-              style={{ border: 0, filter: "grayscale(1) invert(1) contrast(0.85) brightness(0.85)" }}
+              style={{ border: 0 }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

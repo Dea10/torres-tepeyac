@@ -7,15 +7,18 @@
 }
 
 :root {
-  --color-primario: #C9A96E;
-  --color-fondo: #0A0A0A;
-  --color-texto: #FFFFFF;
-  --color-superficie: #141414;
-  --color-borde: rgba(201, 169, 110, 0.2);
+  --color-fondo:      #0D1B2A;
+  --color-superficie: #1B263B;
+  --color-medio:      #415A77;
+  --color-primario:   #778DA9;
+  --color-texto:      #E0E1DD;
+  --color-borde:      rgba(65, 90, 119, 0.4);
 }
 
-html {
-  scroll-behavior: smooth;
+html,
+body {
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
@@ -30,7 +33,7 @@ body {
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(27, 38, 59, 0.7);
   backdrop-filter: blur(12px);
   border: 1px solid var(--color-borde);
 }
@@ -44,9 +47,9 @@ nextjs-portal {
   width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-fondo);
+  background: var(--color-superficie);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-primario);
+  background: var(--color-medio);
   border-radius: 2px;
 }

@@ -4,9 +4,11 @@ export const proyecto = {
   ubicacion: "Estado de México",
 
   tema: {
-    colorPrimario: "#C9A96E",
-    colorFondo: "#0A0A0A",
-    colorTexto: "#FFFFFF",
+    colorFondo:      "#0D1B2A",
+    colorSuperficie: "#1B263B",
+    colorMedio:      "#415A77",
+    colorPrimario:   "#778DA9",
+    colorTexto:      "#E0E1DD",
   },
 
   contacto: {
@@ -17,21 +19,51 @@ export const proyecto = {
   },
 
   modulos: {
-    hero: true,
-    presentacion: true,
-    descripcion: true,
-    conceptualizacion: true,
-    interiorismo: true,
-    planos: true,
-    drone: true,
-    ubicacion: true,
-    pitch: true,
-    contacto: true,
+    portada:          true,
+    inicio:           true,
+    ubicacion:        true,
+    procesoDiseno:    true,
+    interiores:       true,
+    exteriores:       true,
+    disponibilidad:   true,
+    vistasConDron:    true,
+    tourVirtual:      true,
+    avancesObra:      true,
+    contacto:         true,
   },
 
   hero: {
     videoUrl: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1773866688/dron-vista-torres_t2i7kd.mp4",
     imagenFallback: "/assets/fachada-frontal-atardecer.png",
+  },
+
+  inicio: {
+    videoIzquierda: "https://res.cloudinary.com/dv2vr7jc7/video/upload/V-02_k0yjjp.mp4",
+    videoDerecha:   "https://res.cloudinary.com/dv2vr7jc7/video/upload/V-14_cyv2yh.mp4",
+    unidad: {
+      titulo: "La Unidad",
+      caracteristicas: [
+        "85 m² de construcción",
+        "3 recámaras",
+        "Estancia · comedor",
+        "Cocina",
+        "Patio de servicio",
+        "2 baños completos",
+        "Cajón de estacionamiento",
+        "Escaleras de acceso amplias",
+        "2 departamentos por piso",
+        "Conjunto totalmente bardeado",
+      ],
+    },
+    conjunto: {
+      titulo: "El Conjunto",
+      highlights: [
+        { valor: "30",        etiqueta: "Departamentos",       prefijo: "" },
+        { valor: "3",         etiqueta: "Torres · 10 deptos c/u", prefijo: "" },
+        { valor: "1,700,000", etiqueta: "Desde · MXN",        prefijo: "$" },
+      ],
+      descripcion: "Diseño interior personalizable",
+    },
   },
 
   descripcion: {
