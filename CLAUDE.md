@@ -23,3 +23,4 @@ Showroom web para arquitecto Jorge. Un showroom por desarrollo inmobiliario. Vis
 - No instalar librerías sin consultarlo primero
 - Los feature flags en `proyecto.modulos` deciden qué secciones se renderizan
 - Los estilos de color vienen de las variables CSS definidas en `globals.css`, no hardcodeados
+- Siempre se crea una rama nueva para trabajar — nunca se pushea directo a main

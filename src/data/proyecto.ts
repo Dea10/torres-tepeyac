@@ -212,6 +212,14 @@ export const proyecto = {
     ],
   },
 
+  exteriores: {
+    video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/V-13_ilifa8.mp4",
+    imagenes: [
+      "https://res.cloudinary.com/dv2vr7jc7/image/upload/v1777087518/I-17_lkfo2o",
+      "https://res.cloudinary.com/dv2vr7jc7/image/upload/v1777087518/I-18_xeqmt7",
+    ],
+  },
+
   pitch: {
     titulo: "¿Tienes un desarrollo y quieres presentarlo así?",
     subtitulo: "Ofrecemos plataforma digital interactiva por proyecto",
