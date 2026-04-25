@@ -170,6 +170,17 @@ export const proyecto = {
     ],
   },
 
+  seccionUbicacion: {
+    direccion: "Calle Tepeyac No. 38, Colonia Guadalupe, Nicolás Romero, Estado de México",
+    imagen: "https://res.cloudinary.com/dv2vr7jc7/image/upload/I-01_pxx1pk",
+    video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v-03_ynpzjv.mp4",
+    proximidad: [
+      "A 20 minutos de Cd. Satélite",
+      "Centros comerciales a 300 metros",
+      "Town Center Nicolás Romero a 5 minutos",
+    ],
+  },
+
   pitch: {
     titulo: "¿Tienes un desarrollo y quieres presentarlo así?",
     subtitulo: "Ofrecemos plataforma digital interactiva por proyecto",
