@@ -1,39 +1,48 @@
+import PageShell from "@/components/ui/PageShell";
 import { proyecto } from "@/data/proyecto";
-import Hero from "@/components/sections/Hero";
-import Presentacion from "@/components/sections/Presentacion";
-import Descripcion from "@/components/sections/Descripcion";
-import Conceptualizacion from "@/components/sections/Conceptualizacion";
-import Interiorismo from "@/components/sections/Interiorismo";
-import Planos from "@/components/sections/Planos";
-import Drone from "@/components/sections/Drone";
-import Mapa from "@/components/sections/Mapa";
-import Pitch from "@/components/sections/Pitch";
-import Contacto from "@/components/sections/Contacto";
-import WhatsAppFloat from "@/components/ui/WhatsAppFloat";
-import Navbar from "@/components/ui/Navbar";
+import Link from "next/link";
 
-export default function Home() {
+export default function PortadaPage() {
   return (
-    <main style={{ backgroundColor: "var(--color-fondo)", color: "var(--color-texto)" }}>
-      <Navbar />
-      {proyecto.modulos.hero && <Hero />}
-      {proyecto.modulos.presentacion && <Presentacion />}
-      {proyecto.modulos.descripcion && <Descripcion />}
-      {proyecto.modulos.conceptualizacion && <Conceptualizacion />}
-      {proyecto.modulos.interiorismo && <Interiorismo />}
-      {proyecto.modulos.planos && <Planos />}
-      {proyecto.modulos.drone && <Drone />}
-      {proyecto.modulos.ubicacion && <Mapa />}
-      {proyecto.modulos.pitch && <Pitch />}
-      {proyecto.modulos.contacto && <Contacto />}
+    <PageShell>
+      <div
+        className="relative h-full w-full flex flex-col items-center justify-center text-center px-8"
+        style={{ backgroundColor: "var(--color-fondo)" }}
+      >
+        {/* Placeholder: aquí irá el video/imagen de portada */}
+        <div
+          className="absolute inset-0 opacity-20"
+          style={{ background: "linear-gradient(135deg, var(--color-superficie) 0%, var(--color-fondo) 100%)" }}
+        />
 
-      <WhatsAppFloat />
-
-      <footer className="py-8 text-center border-t" style={{ borderColor: "var(--color-borde)" }}>
-        <p className="text-white/20 text-xs tracking-widest uppercase">
-          {proyecto.nombre} · {proyecto.ubicacion}
-        </p>
-      </footer>
-    </main>
+        <div className="relative z-10 flex flex-col items-center gap-6">
+          <p
+            className="text-[10px] tracking-[0.4em] uppercase"
+            style={{ color: "var(--color-primario)" }}
+          >
+            {proyecto.ubicacion}
+          </p>
+          <h1
+            className="font-display text-6xl md:text-8xl font-light leading-none"
+            style={{ color: "var(--color-texto)" }}
+          >
+            {proyecto.nombre}
+          </h1>
+          <p
+            className="text-sm tracking-widest uppercase max-w-xs"
+            style={{ color: "rgba(224,225,221,0.5)" }}
+          >
+            {proyecto.tagline}
+          </p>
+          <Link
+            href="/inicio"
+            className="mt-4 px-8 py-3 text-[11px] tracking-[0.3em] uppercase transition-all duration-300 hover:opacity-80"
+            style={{ backgroundColor: "var(--color-medio)", color: "var(--color-texto)" }}
+          >
+            Explorar
+          </Link>
+        </div>
+      </div>
+    </PageShell>
   );
 }

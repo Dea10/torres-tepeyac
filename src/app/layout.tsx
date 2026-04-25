@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import { proyecto } from "@/data/proyecto";
+import SideNav from "@/components/ui/SideNav";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -29,7 +30,12 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${cormorant.variable} ${inter.variable}`}>
       <body className="antialiased">
-        {children}
+        <div className="flex h-screen w-screen overflow-hidden">
+          <SideNav />
+          <main className="flex-1 h-screen overflow-hidden relative">
+            {children}
+          </main>
+        </div>
       </body>
     </html>
   );
