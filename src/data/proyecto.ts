@@ -156,6 +156,16 @@ export const proyecto = {
     descripcion: "Una perspectiva privilegiada del desarrollo y su entorno",
   },
 
+  procesoDiseno: {
+    celdas: [
+      { id: "planta-tipo",    label: "Planta Tipo",     video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/V-05_k8rkol.mp4" },
+      { id: "3d-conceptual",  label: "3D Conceptual",   video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/V-06_xwwlfe.mp4" },
+      { id: "estudio-solar",  label: "Estudio Solar",   video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/V-15_hwtaqf.mp4" },
+      { id: "sketch",         label: "Sketch",          video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/V-04_kin5aj.mp4" },
+      { id: "maqueta",        label: "Maqueta",         video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/V-07_urx1u2.mp4" },
+    ],
+  },
+
   mapa: {
     lat: 19.619457,
     lng: -99.3035216,
