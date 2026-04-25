@@ -1,11 +1,5 @@
-import PlaceholderPage from "@/components/ui/PlaceholderPage";
+import Ubicacion from "@/components/sections/Ubicacion";
 
 export default function UbicacionPage() {
-  return (
-    <PlaceholderPage
-      numero="03"
-      titulo="Ubicación"
-      descripcion="Mapa interactivo y puntos de interés cercanos al desarrollo."
-    />
-  );
+  return <Ubicacion />;
 }

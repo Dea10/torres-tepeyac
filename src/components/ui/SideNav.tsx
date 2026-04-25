@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { proyecto } from "@/data/proyecto";
 
 export const navItems = [
@@ -50,9 +50,7 @@ function NavLinks({ onClose }: { onClose?: () => void }) {
               >
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <span
-                className="text-[11px] tracking-[0.15em] uppercase font-light transition-colors duration-200 group-hover:text-[var(--color-texto)]"
-              >
+              <span className="text-[11px] tracking-[0.15em] uppercase font-light transition-colors duration-200 group-hover:text-[var(--color-texto)]">
                 {item.label}
               </span>
             </Link>
@@ -64,45 +62,71 @@ function NavLinks({ onClose }: { onClose?: () => void }) {
 
 export default function SideNav() {
   const [open, setOpen] = useState(false);
+  const [collapsed, setCollapsed] = useState(false);
 
   return (
     <>
       {/* Sidebar — desktop */}
       <aside
-        className="hidden md:flex flex-col w-56 shrink-0 h-screen border-r"
+        className="hidden md:flex flex-col h-screen border-r shrink-0 overflow-hidden transition-all duration-300 ease-in-out"
         style={{
+          width: collapsed ? "40px" : "224px",
           backgroundColor: "var(--color-superficie)",
           borderColor: "var(--color-borde)",
         }}
       >
-        <div className="px-4 py-6 border-b" style={{ borderColor: "var(--color-borde)" }}>
-          <span
-            className="font-display text-base font-light tracking-widest block leading-tight"
-            style={{ color: "var(--color-texto)" }}
-          >
-            {proyecto.nombre}
-          </span>
-          <span
-            className="text-[10px] tracking-widest uppercase mt-1 block"
+        {/* Header */}
+        <div
+          className="shrink-0 flex items-center border-b transition-all duration-300"
+          style={{
+            borderColor: "var(--color-borde)",
+            padding: collapsed ? "18px 0" : "24px 16px",
+            justifyContent: collapsed ? "center" : "space-between",
+          }}
+        >
+          {!collapsed && (
+            <div className="overflow-hidden">
+              <span
+                className="font-display text-base font-light tracking-widest block leading-tight whitespace-nowrap"
+                style={{ color: "var(--color-texto)" }}
+              >
+                {proyecto.nombre}
+              </span>
+              <span
+                className="text-[10px] tracking-widest uppercase mt-1 block whitespace-nowrap"
+                style={{ color: "var(--color-primario)" }}
+              >
+                {proyecto.ubicacion}
+              </span>
+            </div>
+          )}
+          <button
+            onClick={() => setCollapsed(!collapsed)}
+            className="shrink-0 p-1 rounded-sm transition-opacity duration-200 hover:opacity-60"
             style={{ color: "var(--color-primario)" }}
+            aria-label={collapsed ? "Expandir menú" : "Colapsar menú"}
           >
-            {proyecto.ubicacion}
-          </span>
+            {collapsed ? <ChevronRight size={14} /> : <ChevronLeft size={14} />}
+          </button>
         </div>
 
-        <NavLinks />
+        {/* Nav links — ocultos cuando colapsado */}
+        {!collapsed && <NavLinks />}
 
-        <div className="px-4 py-5 border-t" style={{ borderColor: "var(--color-borde)" }}>
-          <a
-            href={`https://wa.me/${proyecto.contacto.whatsapp}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center w-full py-2.5 text-[10px] tracking-[0.2em] uppercase rounded-sm transition-opacity duration-200 hover:opacity-80"
-            style={{ backgroundColor: "var(--color-medio)", color: "var(--color-texto)" }}
-          >
-            Contactar
-          </a>
-        </div>
+        {/* Botón contactar — oculto cuando colapsado */}
+        {!collapsed && (
+          <div className="px-4 py-5 border-t" style={{ borderColor: "var(--color-borde)" }}>
+            <a
+              href={`https://wa.me/${proyecto.contacto.whatsapp}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center w-full py-2.5 text-[10px] tracking-[0.2em] uppercase rounded-sm transition-opacity duration-200 hover:opacity-80"
+              style={{ backgroundColor: "var(--color-medio)", color: "var(--color-texto)" }}
+            >
+              Contactar
+            </a>
+          </div>
+        )}
       </aside>
 
       {/* Mobile: hamburger + drawer */}
