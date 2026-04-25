@@ -1,11 +1,5 @@
-import PlaceholderPage from "@/components/ui/PlaceholderPage";
+import Contacto from "@/components/sections/Contacto";
 
 export default function ContactoPage() {
-  return (
-    <PlaceholderPage
-      numero="11"
-      titulo="Contacto"
-      descripcion="Formulario de contacto, WhatsApp directo y datos del proyecto."
-    />
-  );
+  return <Contacto />;
 }
