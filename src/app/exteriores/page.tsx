@@ -1,11 +1,5 @@
-import PlaceholderPage from "@/components/ui/PlaceholderPage";
+import Exteriores from "@/components/sections/Exteriores";
 
 export default function ExterioresPage() {
-  return (
-    <PlaceholderPage
-      numero="06"
-      titulo="Exteriores"
-      descripcion="Renders y fotografías de fachada, áreas comunes y entorno."
-    />
-  );
+  return <Exteriores />;
 }
