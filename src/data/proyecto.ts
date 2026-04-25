@@ -16,6 +16,10 @@ export const proyecto = {
     mensajeWhatsapp: "Hola, me interesa conocer más sobre Conjunto Torres Tepeyac.",
     email: "contacto@torrestepeyac.mx",
     nombre: "Conjunto Torres Tepeyac",
+    redes: [
+      { plataforma: "Instagram", usuario: "@torrestepeyac", url: "https://instagram.com/torrestepeyac" },
+      { plataforma: "Facebook",  usuario: "Torres Tepeyac",  url: "https://facebook.com/torrestepeyac" },
+    ],
   },
 
   modulos: {
@@ -240,6 +244,11 @@ export const proyecto = {
     ],
     whatsapp: "525619167822",
     mensajeWhatsapp: "Hola Jorge, quiero conocer más sobre el showroom digital para mi proyecto.",
+    redes: [
+      { plataforma: "Instagram", usuario: "@luckstudio.official", url: "https://www.instagram.com/luckstudio.official/" },
+      { plataforma: "Facebook",  usuario: "LuckStudio",           url: "https://www.facebook.com/people/LuckStudio/61561040937396/" },
+      { plataforma: "TikTok",    usuario: "@luckstudio.official", url: "https://www.tiktok.com/@luckstudio.official" },
+    ],
   },
 } as const;
 
