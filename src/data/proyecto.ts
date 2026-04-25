@@ -220,6 +220,14 @@ export const proyecto = {
     ],
   },
 
+  vistasDron: {
+    imagenes: [
+      "https://res.cloudinary.com/dv2vr7jc7/image/upload/v1777087518/I-20_q77719",
+      "https://res.cloudinary.com/dv2vr7jc7/image/upload/v1777087518/I-19_xtq522",
+      "https://res.cloudinary.com/dv2vr7jc7/image/upload/v1777087518/I-21_byj0d9",
+    ],
+  },
+
   pitch: {
     titulo: "¿Tienes un desarrollo y quieres presentarlo así?",
     subtitulo: "Ofrecemos plataforma digital interactiva por proyecto",
