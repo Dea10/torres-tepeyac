@@ -1,11 +1,5 @@
-import PlaceholderPage from "@/components/ui/PlaceholderPage";
+import ProcesoDiseno from "@/components/sections/ProcesoDiseno";
 
 export default function ProcesoDeDisenioPage() {
-  return (
-    <PlaceholderPage
-      numero="04"
-      titulo="Proceso de Diseño"
-      descripcion="Del boceto al render: el proceso creativo detrás del proyecto."
-    />
-  );
+  return <ProcesoDiseno />;
 }

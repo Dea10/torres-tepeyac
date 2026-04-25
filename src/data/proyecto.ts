@@ -33,13 +33,13 @@ export const proyecto = {
   },
 
   hero: {
-    videoUrl: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1773866688/dron-vista-torres_t2i7kd.mp4",
+    videoUrl: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/dron-vista-torres_t2i7kd.mp4",
     imagenFallback: "/assets/fachada-frontal-atardecer.png",
   },
 
   inicio: {
-    videoIzquierda: "https://res.cloudinary.com/dv2vr7jc7/video/upload/V-02_k0yjjp.mp4",
-    videoDerecha:   "https://res.cloudinary.com/dv2vr7jc7/video/upload/V-14_cyv2yh.mp4",
+    videoIzquierda: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/V-02_k0yjjp.mp4",
+    videoDerecha:   "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/V-14_cyv2yh.mp4",
     unidad: {
       titulo: "La Unidad",
       caracteristicas: [
@@ -102,7 +102,7 @@ export const proyecto = {
       },
       {
         tipo: "video" as const,
-        src: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1773866689/render-vista-torres_itn2fo.mp4",
+        src: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/render-vista-torres_itn2fo.mp4",
         titulo: "Render Final",
         descripcion: "El proyecto terminado en 3D",
       },
@@ -118,28 +118,28 @@ export const proyecto = {
         nombre: "Master Room — Versión A",
         descripcion: "Ambiente sofisticado con iluminación indirecta y acabados en negro y mármol",
         imagen: "/assets/vista-master-room-01.png",
-        video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1773866684/render-master-room-01_wpfprw.mp4",
+        video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/render-master-room-01_wpfprw.mp4",
       },
       {
         id: 2,
         nombre: "Master Room — Versión B",
         descripcion: "Propuesta luminosa y minimalista con luz natural y tonos neutros",
         imagen: "/assets/vista-master-room-02.png",
-        video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1773866686/render-master-room-02_ojy34w.mp4",
+        video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/render-master-room-02_ojy34w.mp4",
       },
       {
         id: 3,
         nombre: "Sala · Comedor · Cocina",
         descripcion: "Planta abierta que integra los espacios sociales con iluminación cálida",
         imagen: "/assets/vista-sala-comedor-cocina.png",
-        video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1773866688/seccion-render-sala-comerdor-cocina_pdi3d9.mp4",
+        video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/seccion-render-sala-comerdor-cocina_pdi3d9.mp4",
       },
       {
         id: 4,
         nombre: "Cuarto Gamer",
         descripcion: "Un espacio versátil que demuestra el potencial de cada recámara",
         imagen: "/assets/vista-cuarto-gamer.png",
-        video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1773866683/render-cuarto-gamer_vxvweh.mp4",
+        video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/render-cuarto-gamer_vxvweh.mp4",
       },
     ],
   },
@@ -152,8 +152,23 @@ export const proyecto = {
   },
 
   drone: {
-    videoUrl: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1773866688/dron-vista-torres_t2i7kd.mp4",
+    videoUrl: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/dron-vista-torres_t2i7kd.mp4",
     descripcion: "Una perspectiva privilegiada del desarrollo y su entorno",
+  },
+
+  procesoDiseno: {
+    celdas: [
+      { id: "planta-tipo",    label: "Planta Tipo",     video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/V-05_k8rkol.mp4" },
+      { id: "3d-conceptual",  label: "3D Conceptual",   video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/V-06_xwwlfe.mp4" },
+      { id: "estudio-solar",  label: "Estudio Solar",   video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/V-15_hwtaqf.mp4" },
+      { id: "sketch",         label: "Sketch",          video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/V-04_kin5aj.mp4" },
+      { id: "maqueta",        label: "Maqueta",         video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/V-07_urx1u2.mp4" },
+    ],
+    celdaCompuesta: {
+      imagenSupIzq: "https://res.cloudinary.com/dv2vr7jc7/image/upload/v1777087518/I-03_jjlibx",
+      imagenSupDer: "https://res.cloudinary.com/dv2vr7jc7/image/upload/v1777087518/I-04_ufihlv",
+      imagenInf:    "https://res.cloudinary.com/dv2vr7jc7/image/upload/v1777087518/I-02_jfs06z",
+    },
   },
 
   mapa: {
@@ -172,8 +187,8 @@ export const proyecto = {
 
   seccionUbicacion: {
     direccion: "Calle Tepeyac No. 38, Colonia Guadalupe, Nicolás Romero, Estado de México",
-    imagen: "https://res.cloudinary.com/dv2vr7jc7/image/upload/I-01_pxx1pk",
-    video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v-03_ynpzjv.mp4",
+    imagen: "https://res.cloudinary.com/dv2vr7jc7/image/upload/v1777087518/I-01_pxx1pk.png",
+    video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/v-03_ynpzjv.mp4",
     proximidad: [
       "A 20 minutos de Cd. Satélite",
       "Centros comerciales a 300 metros",
