@@ -164,6 +164,11 @@ export const proyecto = {
       { id: "sketch",         label: "Sketch",          video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/V-04_kin5aj.mp4" },
       { id: "maqueta",        label: "Maqueta",         video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/V-07_urx1u2.mp4" },
     ],
+    celdaCompuesta: {
+      imagenSupIzq: "https://res.cloudinary.com/dv2vr7jc7/image/upload/v1777087518/I-03_jjlibx",
+      imagenSupDer: "https://res.cloudinary.com/dv2vr7jc7/image/upload/v1777087518/I-04_ufihlv",
+      imagenInf:    "https://res.cloudinary.com/dv2vr7jc7/image/upload/v1777087518/I-02_jfs06z",
+    },
   },
 
   mapa: {
