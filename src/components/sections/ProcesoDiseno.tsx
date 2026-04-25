@@ -38,15 +38,7 @@ function CeldaVideo({
           background: "linear-gradient(to top, rgba(13,27,42,0.85), transparent)",
         }}
       />
-      {/* Label */}
-      <div className="absolute bottom-3 left-4">
-        <span
-          className="text-[10px] tracking-[0.3em] uppercase font-light"
-          style={{ color: "rgba(224,225,221,0.75)" }}
-        >
-          {label}
-        </span>
-      </div>
+      <span className="absolute bottom-3 left-4 label-media">{label}</span>
     </div>
   );
 }
@@ -75,12 +67,7 @@ function CeldaCompuesta({
               className="absolute inset-x-0 bottom-0 h-10 pointer-events-none"
               style={{ background: "linear-gradient(to top, rgba(13,27,42,0.85), transparent)" }}
             />
-            <span
-              className="absolute bottom-2 left-3 text-[10px] tracking-[0.3em] uppercase font-light"
-              style={{ color: "rgba(224,225,221,0.75)" }}
-            >
-              {label}
-            </span>
+            <span className="absolute bottom-3 left-4 label-media">{label}</span>
           </div>
         ))}
       </div>
@@ -95,12 +82,7 @@ function CeldaCompuesta({
           className="absolute inset-x-0 bottom-0 h-10 pointer-events-none"
           style={{ background: "linear-gradient(to top, rgba(13,27,42,0.85), transparent)" }}
         />
-        <span
-          className="absolute bottom-2 left-3 text-[10px] tracking-[0.3em] uppercase font-light"
-          style={{ color: "rgba(224,225,221,0.75)" }}
-        >
-          Diagrama
-        </span>
+        <span className="absolute bottom-3 left-4 label-media">Diagrama</span>
       </div>
     </div>
   );

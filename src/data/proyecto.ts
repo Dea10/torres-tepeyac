@@ -109,6 +109,22 @@ export const proyecto = {
     ],
   },
 
+  interiores: {
+    videoPortada: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/V-08_zzpjbn.mp4",
+    espacios: [
+      { label: "Sala · Comedor · Cocina", video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/V-09_u78rgz.mp4" },
+      { label: "Recámara Principal",       video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/V-10_tfveue.mp4" },
+      { label: "Recámara Secundaria",      video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/V-11_gacq31.mp4" },
+      { label: "Sala Entretenimiento",     video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/V-12_gbzhqh.mp4" },
+    ],
+    bloques: [
+      ["I-05_z7uter", "I-09_ifooo1", "I-10_uabf4g"],
+      ["I-06_pomz6n", "I-11_avyyxq", "I-12_w9q8zc"],
+      ["I-07_e3rtnz", "I-13_onol5a", "I-14_axisp0"],
+      ["I-08_femitq", "I-15_wr98mf", "I-16_rbdbj5"],
+    ],
+  },
+
   interiorismo: {
     titulo: "Propuestas de Interiorismo",
     subtitulo: "Así se puede vivir en Torres Tepeyac",

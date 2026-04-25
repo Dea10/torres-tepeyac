@@ -20,12 +20,7 @@ function Label({ text, fase }: { text: string; fase?: string }) {
         className="absolute inset-x-0 bottom-0 h-14 pointer-events-none"
         style={{ background: "linear-gradient(to top, rgba(13,27,42,0.9), transparent)" }}
       />
-      <span
-        className="absolute bottom-3 left-4 text-[11px] tracking-[0.25em] uppercase font-light"
-        style={{ color: "rgba(224,225,221,0.85)" }}
-      >
-        {text}
-      </span>
+      <span className="absolute bottom-3 left-4 label-media">{text}</span>
     </>
   );
 }

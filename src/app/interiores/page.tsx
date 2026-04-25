@@ -1,11 +1,5 @@
-import PlaceholderPage from "@/components/ui/PlaceholderPage";
+import Interiores from "@/components/sections/Interiores";
 
 export default function InterioresPage() {
-  return (
-    <PlaceholderPage
-      numero="05"
-      titulo="Interiores"
-      descripcion="Propuestas de interiorismo para cada espacio del departamento."
-    />
-  );
+  return <Interiores />;
 }

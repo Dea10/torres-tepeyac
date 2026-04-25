@@ -52,12 +52,7 @@ export default function Inicio() {
             className="shrink-0 px-6 py-6 md:border-t flex-1 md:flex-none flex flex-col justify-center md:justify-start"
             style={{ borderColor: "var(--color-borde)" }}
           >
-            <p
-              className="text-[11px] tracking-[0.35em] uppercase mb-5"
-              style={{ color: "var(--color-primario)" }}
-            >
-              {unidad.titulo}
-            </p>
+            <p className="label-ui mb-5">{unidad.titulo}</p>
             <ul className="grid grid-cols-2 gap-x-6 gap-y-2">
               {unidad.caracteristicas.map((c) => (
                 <li
@@ -83,12 +78,7 @@ export default function Inicio() {
             className="shrink-0 px-6 py-6 md:border-b flex-1 md:flex-none flex flex-col justify-center md:justify-start"
             style={{ borderColor: "var(--color-borde)" }}
           >
-            <p
-              className="text-[11px] tracking-[0.35em] uppercase mb-5"
-              style={{ color: "var(--color-primario)" }}
-            >
-              {conjunto.titulo}
-            </p>
+            <p className="label-ui mb-5">{conjunto.titulo}</p>
 
             <div className="flex flex-col gap-4">
               {conjunto.highlights.map((h) => (

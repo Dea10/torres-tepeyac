@@ -43,15 +43,10 @@ export default function Ubicacion() {
             className="shrink-0 px-4 py-5 border-t"
             style={{ borderColor: "var(--color-borde)" }}
           >
+            <p className="label-ui mb-2">Dirección</p>
             <p
-              className="text-[11px] tracking-[0.3em] uppercase mb-2"
-              style={{ color: "var(--color-primario)" }}
-            >
-              Dirección
-            </p>
-            <p
-              className="text-base leading-relaxed"
-              style={{ color: "rgba(224,225,221,0.8)" }}
+              className="text-sm leading-relaxed tracking-wide"
+              style={{ color: "rgba(224,225,221,0.7)" }}
             >
               {direccion}
             </p>
@@ -90,18 +85,8 @@ export default function Ubicacion() {
                   className="flex items-start gap-3 border-b pb-5 last:border-b-0 last:pb-0"
                   style={{ borderColor: "var(--color-borde)" }}
                 >
-                  <span
-                    className="mt-1 shrink-0 text-lg leading-none"
-                    style={{ color: "var(--color-primario)" }}
-                  >
-                    ·
-                  </span>
-                  <span
-                    className="text-base leading-snug"
-                    style={{ color: "var(--color-texto)" }}
-                  >
-                    {punto}
-                  </span>
+                  <span className="label-ui">·</span>
+                  <span className="label-ui">{punto}</span>
                 </div>
               ))}
             </div>
