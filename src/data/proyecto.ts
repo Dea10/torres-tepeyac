@@ -244,6 +244,21 @@ export const proyecto = {
     ],
   },
 
+  avancesObra: {
+    imagenes: [
+      { id: "I-22_ycr7p7", label: "I-22" },
+      { id: "I-23_klnbsh", label: "I-23" },
+      { id: "I-24_olrxrd", label: "I-24" },
+      { id: "I-25_n6alkp", label: "I-25" },
+      { id: "I-26_kbmn7o", label: "I-26" },
+      { id: "I-27_za4q15", label: "I-27" },
+      { id: "I-28_mvof30", label: "I-28" },
+      { id: "I-29_guyfo2", label: "I-29" },
+      { id: "I-30_sllasw", label: "I-30" },
+      { id: "I-31_hvri9v", label: "I-31" },
+    ],
+  },
+
   pitch: {
     titulo: "¿Tienes un desarrollo y quieres presentarlo así?",
     subtitulo: "Ofrecemos plataforma digital interactiva por proyecto",
