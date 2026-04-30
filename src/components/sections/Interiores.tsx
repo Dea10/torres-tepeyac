@@ -26,7 +26,6 @@ function Label({ text }: { text: string }) {
         className="absolute inset-x-0 bottom-0 h-14 pointer-events-none"
         style={{ background: "linear-gradient(to top, rgba(13,27,42,0.9), transparent)" }}
       />
-      <span className="absolute bottom-3 left-4 label-media">{text}</span>
     </>
   );
 }
@@ -106,8 +105,8 @@ function CeldaImg({ src }: { src: string }) {
 function Bloque({ imagenes }: { imagenes: readonly string[] }) {
   return (
     <div
-      className="overflow-hidden"
-      style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", ...gap1, ...BORDER }}
+      className="overflow-hidden pt-2 pl-2 pr-2 pb-16"
+      style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", ...gap1 }}
     >
       {imagenes.map((id) => (
         <CeldaImg key={id} src={`${BASE}${id}`} />
@@ -122,14 +121,15 @@ export default function Interiores() {
 
   return (
     <PageShell>
+      <div className="h-full" style={{ backgroundColor: "var(--bg-neutro)" }}>
       <div
         className="h-full overflow-hidden"
-        style={{ display: "grid", gridTemplateRows: "60fr 40fr", ...gap1, ...BORDER }}
+        style={{ display: "grid", gridTemplateRows: "60fr 40fr", ...gap1 }}
       >
         {/* ── Parte superior: video portada + 4 espacios ── */}
         <div
           className="overflow-hidden"
-          style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr 1fr", ...gap1, ...BORDER }}
+          style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr 1fr 1fr", ...gap1 }}
         >
           <CeldaPortada src={videoPortada} />
           {espacios.map((e, i) => (
@@ -145,12 +145,13 @@ export default function Interiores() {
         {/* ── Parte inferior: 4 bloques × 3 imágenes ── */}
         <div
           className="overflow-hidden"
-          style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", ...gap1, ...BORDER }}
+          style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", ...gap1}}
         >
           {bloques.map((b, i) => (
             <Bloque key={i} imagenes={b} />
           ))}
         </div>
+      </div>
       </div>
     </PageShell>
   );

@@ -21,7 +21,7 @@ function CeldaBanda({ src, label, invertida }: { src: string; label: string; inv
     <div
       className="flex items-center px-4"
       style={{
-        backgroundColor: "var(--color-superficie)",
+        backgroundColor: "var(--bg-marino)",
         borderBottom: "1px solid var(--color-borde)",
         borderTop: "1px solid var(--color-borde)",
       }}
@@ -33,13 +33,13 @@ function CeldaBanda({ src, label, invertida }: { src: string; label: string; inv
   const img = (
     <div className="relative overflow-hidden">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={src} alt={label} className="absolute inset-0 w-full h-full object-cover" />
+      <img src={src} alt={label} className="absolute inset-0 w-full h-full object-cover p-4" />
       <Vignette />
     </div>
   );
 
   return (
-    <div style={{ display: "grid", gridTemplateRows: rows, gap: "1px", backgroundColor: "var(--color-borde)" }}>
+    <div style={{ display: "grid", gridTemplateRows: rows, gap: "1px", backgroundColor: "var(--bg-marino)" }}>
       {invertida ? <>{img}{banda}</> : <>{banda}{img}</>}
     </div>
   );
@@ -50,6 +50,7 @@ export default function VistasDron() {
 
   return (
     <PageShell>
+      <div className="h-full" style={{ backgroundColor: "var(--bg-marino)" }}>
       <div
         className="h-full overflow-hidden"
         style={{
@@ -70,6 +71,7 @@ export default function VistasDron() {
           <CeldaBanda src={img19} label="Acceso principal" invertida={true} />
           <CeldaBanda src={img21} label="Torre frontal"    invertida={false} />
         </div>
+      </div>
       </div>
     </PageShell>
   );

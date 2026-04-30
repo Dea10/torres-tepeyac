@@ -16,7 +16,7 @@ function VideoVivo({ src, className = "" }: { src: string; className?: string })
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover p-6"
       />
       {/* Vignette — da el efecto de foto viva enmarcada */}
       <div
@@ -37,7 +37,7 @@ export default function Inicio() {
     <PageShell>
       <div
         className="h-full grid grid-cols-1 md:grid-cols-12 overflow-hidden"
-        style={{ backgroundColor: "var(--color-fondo)" }}
+        style={{ backgroundColor: "var(--bg-marino)" }}
       >
         {/* ── Panel izquierdo ─────────────────────────────── */}
         <div

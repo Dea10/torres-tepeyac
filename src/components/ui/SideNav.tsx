@@ -40,17 +40,20 @@ function NavLinks({ onClose }: { onClose?: () => void }) {
               onClick={onClose}
               className="group flex items-center gap-3 px-4 py-2.5 rounded-sm transition-all duration-200"
               style={{
-                backgroundColor: isActive ? "var(--color-medio)" : "transparent",
-                color: isActive ? "var(--color-texto)" : "rgba(224,225,221,0.5)",
+                backgroundColor: isActive ? "rgba(119,141,169,0.22)" : "transparent",
+                color: isActive ? "var(--color-fondo)" : "rgba(13,27,42,0.5)",
               }}
             >
               <span
                 className="text-[10px] font-mono tabular-nums shrink-0 transition-colors duration-200"
-                style={{ color: isActive ? "var(--color-primario)" : "rgba(119,141,169,0.4)" }}
+                style={{ color: isActive ? "var(--color-primario)" : "rgba(13,27,42,0.3)" }}
               >
                 {String(index + 1).padStart(2, "0")}
               </span>
-              <span className="text-[11px] tracking-[0.15em] uppercase font-light transition-colors duration-200 group-hover:text-[var(--color-texto)]">
+              <span
+                className="text-[11px] tracking-[0.15em] uppercase font-light transition-colors duration-200"
+                style={{ color: isActive ? "var(--color-fondo)" : "rgba(13,27,42,0.5)" }}
+              >
                 {item.label}
               </span>
             </Link>
@@ -71,7 +74,7 @@ export default function SideNav() {
         className="hidden md:flex flex-col h-screen border-r shrink-0 overflow-hidden transition-all duration-300 ease-in-out"
         style={{
           width: collapsed ? "40px" : "224px",
-          backgroundColor: "var(--color-superficie)",
+          backgroundColor: "var(--color-texto)",
           borderColor: "var(--color-borde)",
         }}
       >
@@ -88,13 +91,13 @@ export default function SideNav() {
             <div className="overflow-hidden">
               <span
                 className="font-display text-base font-light tracking-widest block leading-tight whitespace-nowrap"
-                style={{ color: "var(--color-texto)" }}
+                style={{ color: "var(--color-fondo)" }}
               >
                 {proyecto.nombre}
               </span>
               <span
                 className="text-[10px] tracking-widest uppercase mt-1 block whitespace-nowrap"
-                style={{ color: "var(--color-primario)" }}
+                style={{ color: "var(--color-medio)" }}
               >
                 {proyecto.ubicacion}
               </span>
@@ -103,7 +106,7 @@ export default function SideNav() {
           <button
             onClick={() => setCollapsed(!collapsed)}
             className="shrink-0 p-1 rounded-sm transition-opacity duration-200 hover:opacity-60"
-            style={{ color: "var(--color-primario)" }}
+            style={{ color: "var(--color-medio)" }}
             aria-label={collapsed ? "Expandir menú" : "Colapsar menú"}
           >
             {collapsed ? <ChevronRight size={14} /> : <ChevronLeft size={14} />}
@@ -121,7 +124,7 @@ export default function SideNav() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center w-full py-2.5 text-[10px] tracking-[0.2em] uppercase rounded-sm transition-opacity duration-200 hover:opacity-80"
-              style={{ backgroundColor: "var(--color-medio)", color: "var(--color-texto)" }}
+              style={{ backgroundColor: "var(--color-fondo)", color: "var(--color-texto)" }}
             >
               Contactar
             </a>
@@ -134,7 +137,7 @@ export default function SideNav() {
         <button
           onClick={() => setOpen(true)}
           className="fixed top-4 left-4 z-50 p-2 rounded-sm"
-          style={{ backgroundColor: "var(--color-superficie)", color: "var(--color-texto)" }}
+          style={{ backgroundColor: "var(--color-texto)", color: "var(--color-fondo)" }}
           aria-label="Abrir menú"
         >
           <Menu size={20} />
@@ -158,21 +161,21 @@ export default function SideNav() {
                 transition={{ type: "tween", duration: 0.25 }}
                 className="fixed top-0 left-0 h-full z-50 w-64 flex flex-col border-r"
                 style={{
-                  backgroundColor: "var(--color-superficie)",
+                  backgroundColor: "var(--color-texto)",
                   borderColor: "var(--color-borde)",
                 }}
               >
                 <div className="flex items-center justify-between px-4 py-5 border-b" style={{ borderColor: "var(--color-borde)" }}>
                   <span
                     className="font-display text-base font-light tracking-widest"
-                    style={{ color: "var(--color-texto)" }}
+                    style={{ color: "var(--color-fondo)" }}
                   >
                     {proyecto.nombre}
                   </span>
                   <button
                     onClick={() => setOpen(false)}
                     aria-label="Cerrar menú"
-                    style={{ color: "var(--color-primario)" }}
+                    style={{ color: "var(--color-medio)" }}
                   >
                     <X size={18} />
                   </button>
@@ -187,7 +190,7 @@ export default function SideNav() {
                     rel="noopener noreferrer"
                     onClick={() => setOpen(false)}
                     className="flex items-center justify-center w-full py-2.5 text-[10px] tracking-[0.2em] uppercase rounded-sm"
-                    style={{ backgroundColor: "var(--color-medio)", color: "var(--color-texto)" }}
+                    style={{ backgroundColor: "var(--color-fondo)", color: "var(--color-texto)" }}
                   >
                     Contactar
                   </a>
