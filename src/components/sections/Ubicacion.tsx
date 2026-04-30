@@ -10,17 +10,15 @@ export default function Ubicacion() {
   return (
     <PageShell>
       <div
-        className="h-full grid grid-cols-1 md:grid-cols-3 overflow-hidden"
-        style={{ backgroundColor: "var(--color-fondo)" }}
+        className="h-full grid grid-cols-1 md:grid-cols-[1fr_2fr] md:grid-rows-[1fr_auto] overflow-hidden"
+        style={{ backgroundColor: "var(--bg-neutro)" }}
       >
-
-        {/* ── Columna izquierda: 1/3 — mapa + dirección ───── */}
+        {/* ── Top-left: Google Maps ── */}
         <div
-          className="flex flex-col border-b md:border-b-0 md:border-r overflow-hidden"
+          className="overflow-hidden border-b md:border-b-0 md:border-r md:col-start-1 md:row-start-1"
           style={{ borderColor: "var(--color-borde)" }}
         >
-          {/* Iframe — frame pequeño con padding */}
-          <div className="p-4" style={{ flex: "3" }}>
+          <div className="p-4 w-full h-full">
             <div className="relative w-full h-full overflow-hidden rounded-sm">
               <iframe
                 src={embedUrl}
@@ -37,36 +35,22 @@ export default function Ubicacion() {
               />
             </div>
           </div>
-
-          {/* Dirección */}
-          <div
-            className="shrink-0 px-4 py-5 border-t"
-            style={{ borderColor: "var(--color-borde)" }}
-          >
-            <p className="label-ui mb-2">Dirección</p>
-            <p
-              className="text-sm leading-relaxed tracking-wide"
-              style={{ color: "rgba(224,225,221,0.7)" }}
-            >
-              {direccion}
-            </p>
-          </div>
         </div>
 
-        {/* ── Columnas derecha: 2/3 ───────────────────────── */}
-        <div className="col-span-1 md:col-span-2 flex flex-col overflow-hidden">
-
-          {/* Fila superior: croquis | proximidad */}
+        {/* ── Top-right: croquis | proximidad + video ── */}
+        <div
+          className="flex flex-col overflow-hidden md:col-start-2 md:row-start-1"
+        >
+          {/* Croquis | Proximidad */}
           <div
             className="grid grid-cols-2 border-b overflow-hidden"
             style={{ flex: "2", borderColor: "var(--color-borde)" }}
           >
-            {/* Croquis */}
             <div
               className="relative border-r overflow-hidden"
               style={{
                 borderColor: "var(--color-borde)",
-                backgroundColor: "var(--color-superficie)",
+                // backgroundColor: "var(--color-superficie)",
               }}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -76,8 +60,6 @@ export default function Ubicacion() {
                 className="absolute inset-0 w-full h-full object-contain p-4"
               />
             </div>
-
-            {/* Puntos de proximidad */}
             <div className="flex flex-col justify-center gap-5 px-8 py-6">
               {proximidad.map((punto) => (
                 <div
@@ -92,26 +74,46 @@ export default function Ubicacion() {
             </div>
           </div>
 
-          {/* Fila inferior: video */}
+          {/* Video */}
           <div className="relative overflow-hidden" style={{ flex: "3" }}>
-            <video
-              src={video}
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{
-                background:
-                  "radial-gradient(ellipse at center, transparent 50%, rgba(13,27,42,0.5) 100%)",
-              }}
-            />
+            <div className="absolute inset-0 p-4">
+              <div className="relative w-full h-full overflow-hidden">
+                <video
+                  src={video}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background:
+                      "radial-gradient(ellipse at center, transparent 50%, rgba(13,27,42,0.5) 100%)",
+                  }}
+                />
+              </div>
+            </div>
           </div>
-
         </div>
+
+        {/* ── Bottom-left: Dirección ── */}
+        <div
+          className="px-4 py-5 border-t md:border-r md:col-start-1 md:row-start-2"
+          style={{ borderColor: "var(--color-borde)" }}
+        >
+          <p className="label-ui mb-2">Dirección</p>
+          <p
+            className="text-sm leading-relaxed tracking-wide"
+            style={{ color: "rgba(224,225,221,0.7)" }}
+          >
+            {direccion}
+          </p>
+        </div>
+
+        {/* ── Bottom-right: vacío ── */}
+        <div className="hidden md:block md:col-start-2 md:row-start-2" />
       </div>
     </PageShell>
   );

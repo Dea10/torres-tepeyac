@@ -20,7 +20,7 @@ function CeldaVideo({
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-cover p-4"
         style={{ objectPosition }}
       />
       {/* Vignette base */}
@@ -38,7 +38,10 @@ function CeldaVideo({
           background: "linear-gradient(to top, rgba(13,27,42,0.85), transparent)",
         }}
       />
-      <span className="absolute bottom-3 left-4 label-media">{label}</span>
+      <span className="absolute bottom-3 left-4 label-media px-3 py-1.5 rounded-sm m-3"
+        style={{ backgroundColor: "rgba(245,240,232,0.95)", color: "#1a1a1a" }}>
+        {label}
+      </span>
     </div>
   );
 }
@@ -53,7 +56,7 @@ function CeldaCompuesta({
   imagenInf: string;
 }) {
   return (
-    <div className="relative overflow-hidden flex flex-col" style={{ gap: "1px", backgroundColor: "var(--color-borde)" }}>
+    <div className="relative overflow-hidden flex flex-col p-4" style={{ gap: "1px", background: "radial-gradient(transparent 30%, rgba(13,27,42,0.6) 100%)" }}>
       {/* Fila superior: dos imágenes */}
       <div className="flex flex-1 min-h-0" style={{ gap: "1px" }}>
         {[
@@ -67,7 +70,12 @@ function CeldaCompuesta({
               className="absolute inset-x-0 bottom-0 h-10 pointer-events-none"
               style={{ background: "linear-gradient(to top, rgba(13,27,42,0.85), transparent)" }}
             />
-            <span className="absolute bottom-3 left-4 label-media">{label}</span>
+            <span
+              className="absolute bottom-3 left-4 label-media px-3 py-1.5 rounded-sm"
+        style={{ backgroundColor: "rgba(245,240,232,0.95)", color: "#1a1a1a" }}
+            >
+              {label}
+            </span>
           </div>
         ))}
       </div>
@@ -82,7 +90,10 @@ function CeldaCompuesta({
           className="absolute inset-x-0 bottom-0 h-10 pointer-events-none"
           style={{ background: "linear-gradient(to top, rgba(13,27,42,0.85), transparent)" }}
         />
-        <span className="absolute bottom-3 left-4 label-media">Diagrama</span>
+        <span className="absolute bottom-3 left-4 label-media px-3 py-1.5 rounded-sm"
+        style={{ backgroundColor: "rgba(245,240,232,0.95)", color: "#1a1a1a" }}>
+          Diagrama
+        </span>
       </div>
     </div>
   );
@@ -95,6 +106,7 @@ export default function ProcesoDiseno() {
 
   return (
     <PageShell>
+      <div className="h-full" style={{ backgroundColor: "var(--bg-marino)" }}>
       <div
         className="h-full grid grid-cols-3 grid-rows-2 overflow-hidden"
         style={{
@@ -115,6 +127,7 @@ export default function ProcesoDiseno() {
           imagenInf={celdaCompuesta.imagenInf}
         />
         <CeldaVideo label={maqueta.label} video={maqueta.video} />
+      </div>
       </div>
     </PageShell>
   );

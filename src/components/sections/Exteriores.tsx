@@ -20,7 +20,7 @@ function CeldaImagen({ src, label, invertida }: { src: string; label: string; in
   const banda = (
     <div
       className="flex items-center px-4"
-      style={{ backgroundColor: "var(--color-superficie)", borderBottom: "1px solid var(--color-borde)", borderTop: "1px solid var(--color-borde)" }}
+      style={{ backgroundColor: "var(--bg-marino)", borderRight: "1px solid var(--color-borde)", borderTop: "1px solid var(--color-borde)", borderBottom: "1px solid var(--color-borde)" }}
     >
       <span className="label-ui">{label}</span>
     </div>
@@ -29,13 +29,13 @@ function CeldaImagen({ src, label, invertida }: { src: string; label: string; in
   const img = (
     <div className="relative overflow-hidden">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={src} alt={label} className="absolute inset-0 w-full h-full object-cover" />
+      <img src={src} alt={label} className="absolute inset-0 w-full h-full object-cover p-4" style={{ borderRight: "1px solid var(--color-borde)" }} />
       <Vignette />
     </div>
   );
 
   return (
-    <div style={{ display: "grid", gridTemplateRows: rows, gap: "1px", backgroundColor: "var(--color-borde)" }}>
+    <div style={{ display: "grid", gridTemplateRows: rows, gap: "1px", backgroundColor: "var(--bg-marino)" }}>
       {invertida ? <>{img}{banda}</> : <>{banda}{img}</>}
     </div>
   );
@@ -47,15 +47,23 @@ export default function Exteriores() {
 
   return (
     <PageShell>
+      <div className="h-full" style={{ backgroundColor: "var(--bg-marino)" }}>
       <div
         className="h-full overflow-hidden"
         style={{
           display: "grid",
-          gridTemplateColumns: "2fr 1fr 1fr",
+          gridTemplateColumns: "1fr 1fr 2fr",
           gap: "1px",
-          backgroundColor: "var(--color-borde)",
+          backgroundColor: "var(--bg-marino)",
         }}
       >
+
+        {/* I-17 — imagen arriba, banda abajo */}
+        <CeldaImagen src={img17} label="Fachada" invertida={true} />
+
+        {/* I-18 — banda arriba, imagen abajo */}
+        <CeldaImagen src={img18} label="Detalle" invertida={false} />
+
         {/* Video panorámico */}
         <div className="relative overflow-hidden">
           <video
@@ -70,11 +78,8 @@ export default function Exteriores() {
           <span className="absolute bottom-3 left-4 label-media">Vista aérea</span>
         </div>
 
-        {/* I-17 — imagen arriba, banda abajo */}
-        <CeldaImagen src={img17} label="Fachada" invertida={true} />
-
-        {/* I-18 — banda arriba, imagen abajo */}
-        <CeldaImagen src={img18} label="Detalle" invertida={false} />
+        
+      </div>
       </div>
     </PageShell>
   );

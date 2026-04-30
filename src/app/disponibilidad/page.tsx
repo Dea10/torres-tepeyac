@@ -6,6 +6,7 @@ export default function DisponibilidadPage() {
       numero="07"
       titulo="Disponibilidad"
       descripcion="Planos de planta, unidades disponibles y tabla de precios."
+      bg="var(--bg-neutro)"
     />
   );
 }

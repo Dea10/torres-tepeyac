@@ -23,7 +23,7 @@ export default function Contacto() {
     <PageShell>
       <div
         className="h-full overflow-hidden flex flex-col items-center justify-center px-8 gap-8"
-        style={{ backgroundColor: "var(--color-fondo)" }}
+        style={{ backgroundColor: "var(--bg-neutro)" }}
       >
         <span className="label-ui">Para Desarrolladoras</span>
 

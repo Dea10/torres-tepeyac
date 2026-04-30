@@ -2,6 +2,11 @@ export const proyecto = {
   nombre: "Torres Tepeyac",
   tagline: "Arquitectura que transforma espacios en experiencias",
   ubicacion: "Estado de México",
+  header1: "Desarrollo",
+
+  portada: {
+    video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/V-01_idmewv.mp4",
+  },
 
   tema: {
     colorFondo:      "#0D1B2A",
@@ -174,6 +179,13 @@ export const proyecto = {
   drone: {
     videoUrl: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/dron-vista-torres_t2i7kd.mp4",
     descripcion: "Una perspectiva privilegiada del desarrollo y su entorno",
+  },
+
+  tourVirtual: {
+    frames: [
+      { label: "3D",                    url: "https://share.d5render.com/user-hub/showreel/shortLink/YBG4m4" },
+      { label: "Recorrido 360° Exterior", url: "https://ths.li/42FErJr" },
+    ],
   },
 
   procesoDiseno: {

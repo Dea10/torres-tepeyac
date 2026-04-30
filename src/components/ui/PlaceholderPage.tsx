@@ -4,14 +4,15 @@ interface PlaceholderPageProps {
   numero: string;
   titulo: string;
   descripcion?: string;
+  bg?: string;
 }
 
-export default function PlaceholderPage({ numero, titulo, descripcion }: PlaceholderPageProps) {
+export default function PlaceholderPage({ numero, titulo, descripcion, bg = "var(--color-fondo)" }: PlaceholderPageProps) {
   return (
     <PageShell>
       <div
         className="h-full w-full flex flex-col items-center justify-center px-8 text-center gap-4"
-        style={{ backgroundColor: "var(--color-fondo)" }}
+        style={{ backgroundColor: bg }}
       >
         <span
           className="text-[10px] font-mono tracking-[0.3em]"

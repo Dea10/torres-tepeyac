@@ -5,22 +5,31 @@ import Link from "next/link";
 export default function PortadaPage() {
   return (
     <PageShell>
-      <div
-        className="relative h-full w-full flex flex-col items-center justify-center text-center px-8"
-        style={{ backgroundColor: "var(--color-fondo)" }}
-      >
-        {/* Placeholder: aquí irá el video/imagen de portada */}
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{ background: "linear-gradient(135deg, var(--color-superficie) 0%, var(--color-fondo) 100%)" }}
+      <div className="relative h-full w-full overflow-hidden">
+
+        {/* Video fondo completo */}
+        <video
+          src={proyecto.portada.video}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
         />
 
-        <div className="relative z-10 flex flex-col items-center gap-6">
+        {/* Overlay */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{ background: "radial-gradient(ellipse at center, rgba(13,27,42,0.2) 0%, rgba(13,27,42,0) 100%)" }}
+        />
+
+        {/* Contenido centrado */}
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-8 gap-6">
           <p
-            className="text-[10px] tracking-[0.4em] uppercase"
-            style={{ color: "var(--color-primario)" }}
+            className="text-[24px] tracking-[0.4em] uppercase"
+            style={{ color: "var(--color-texto)" }}
           >
-            {proyecto.ubicacion}
+            {proyecto.header1}
           </p>
           <h1
             className="font-display text-6xl md:text-8xl font-light leading-none"
@@ -29,8 +38,8 @@ export default function PortadaPage() {
             {proyecto.nombre}
           </h1>
           <p
-            className="text-sm tracking-widest uppercase max-w-xs"
-            style={{ color: "rgba(224,225,221,0.5)" }}
+            className="text-md tracking-widest uppercase max-w-sm"
+            style={{ color: "rgb(255, 255, 255)" }}
           >
             {proyecto.tagline}
           </p>
@@ -42,6 +51,7 @@ export default function PortadaPage() {
             Explorar
           </Link>
         </div>
+
       </div>
     </PageShell>
   );
