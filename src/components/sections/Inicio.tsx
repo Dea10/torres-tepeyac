@@ -1,14 +1,19 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useCallback } from "react";
+import { AnimatePresence } from "framer-motion";
 import PageShell from "@/components/ui/PageShell";
+import MediaModal, { type MediaItem } from "@/components/ui/MediaModal";
 import { proyecto } from "@/data/proyecto";
 
-function VideoVivo({ src, className = "" }: { src: string; className?: string }) {
+function VideoVivo({ src, className = "", onClick }: { src: string; className?: string; onClick?: () => void }) {
   const ref = useRef<HTMLVideoElement>(null);
 
   return (
-    <div className={`relative overflow-hidden ${className}`}>
+    <div
+      className={`relative overflow-hidden${onClick ? " cursor-pointer group" : ""} ${className}`}
+      onClick={onClick}
+    >
       <video
         ref={ref}
         src={src}
@@ -16,14 +21,12 @@ function VideoVivo({ src, className = "" }: { src: string; className?: string })
         muted
         loop
         playsInline
-        className="absolute inset-0 w-full h-full object-cover p-6"
+        className="absolute inset-0 w-full h-full object-cover p-6 transition-transform duration-500 group-hover:scale-105"
       />
-      {/* Vignette — da el efecto de foto viva enmarcada */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background:
-            "radial-gradient(ellipse at center, transparent 40%, rgba(13,27,42,0.55) 100%)",
+          background: "radial-gradient(ellipse at center, transparent 40%, rgba(13,27,42,0.55) 100%)",
         }}
       />
     </div>
@@ -32,6 +35,16 @@ function VideoVivo({ src, className = "" }: { src: string; className?: string })
 
 export default function Inicio() {
   const { unidad, conjunto, videoIzquierda, videoDerecha } = proyecto.inicio;
+  const [activo, setActivo] = useState<number | null>(null);
+
+  const items: MediaItem[] = [
+    { src: videoIzquierda, type: "video" },
+    { src: videoDerecha,   type: "video" },
+  ];
+
+  const cerrar = useCallback(() => setActivo(null), []);
+  const prev   = useCallback(() => setActivo((i) => i === null ? null : (i - 1 + items.length) % items.length), [items.length]);
+  const next   = useCallback(() => setActivo((i) => i === null ? null : (i + 1) % items.length), [items.length]);
 
   return (
     <PageShell>
@@ -39,15 +52,13 @@ export default function Inicio() {
         className="h-full grid grid-cols-1 md:grid-cols-12 overflow-hidden"
         style={{ backgroundColor: "var(--bg-marino)" }}
       >
-        {/* ── Panel izquierdo ─────────────────────────────── */}
+        {/* Panel izquierdo */}
         <div
           className="md:col-span-6 flex flex-col border-b md:border-b-0 md:border-r overflow-hidden"
           style={{ borderColor: "var(--color-borde)" }}
         >
-          {/* Video superior — solo desktop */}
-          <VideoVivo src={videoIzquierda} className="hidden md:block flex-1 min-h-0" />
+          <VideoVivo src={videoIzquierda} className="hidden md:block flex-1 min-h-0" onClick={() => setActivo(0)} />
 
-          {/* Características de la unidad */}
           <div
             className="shrink-0 px-6 py-6 md:border-t flex-1 md:flex-none flex flex-col justify-center md:justify-start"
             style={{ borderColor: "var(--color-borde)" }}
@@ -71,9 +82,8 @@ export default function Inicio() {
           </div>
         </div>
 
-        {/* ── Panel derecho ───────────────────────────────── */}
+        {/* Panel derecho */}
         <div className="md:col-span-6 flex flex-col overflow-hidden">
-          {/* Highlights del conjunto */}
           <div
             className="shrink-0 px-6 py-6 md:border-b flex-1 md:flex-none flex flex-col justify-center md:justify-start"
             style={{ borderColor: "var(--color-borde)" }}
@@ -103,7 +113,6 @@ export default function Inicio() {
                 </div>
               ))}
 
-              {/* Descripción libre */}
               <p
                 className="text-sm tracking-widest uppercase pt-1"
                 style={{ color: "var(--color-primario)" }}
@@ -113,10 +122,15 @@ export default function Inicio() {
             </div>
           </div>
 
-          {/* Video inferior — solo desktop */}
-          <VideoVivo src={videoDerecha} className="hidden md:block flex-1 min-h-0" />
+          <VideoVivo src={videoDerecha} className="hidden md:block flex-1 min-h-0" onClick={() => setActivo(1)} />
         </div>
       </div>
+
+      <AnimatePresence>
+        {activo !== null && (
+          <MediaModal items={items} indice={activo} onClose={cerrar} onPrev={prev} onNext={next} />
+        )}
+      </AnimatePresence>
     </PageShell>
   );
 }
