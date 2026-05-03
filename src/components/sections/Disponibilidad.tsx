@@ -34,7 +34,7 @@ export default function Disponibilidad() {
               <button
                 key={n.id}
                 onClick={() => setActivo(i)}
-                className="px-4 py-2 rounded-sm transition-all duration-200 text-[10px] tracking-[0.2em] uppercase"
+                className="px-4 py-2 rounded-sm transition-all duration-200 text-[14px] tracking-[0.2em] uppercase"
                 style={{
                   backgroundColor: activo === i ? "var(--color-fondo)" : "transparent",
                   color: activo === i ? "var(--color-texto)" : "var(--color-primario)",
@@ -54,7 +54,7 @@ export default function Disponibilidad() {
                   style={{ backgroundColor: item.color }}
                 />
                 <span
-                  className="text-[10px] tracking-[0.15em] uppercase"
+                  className="text-[14px] tracking-[0.15em] uppercase"
                   style={{ color: "var(--color-primario)" }}
                 >
                   {item.label}
