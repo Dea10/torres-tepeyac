@@ -50,9 +50,8 @@ export const proyecto = {
     videoIzquierda: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/V-02_k0yjjp.mp4",
     videoDerecha:   "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/V-14_cyv2yh.mp4",
     unidad: {
-      titulo: "La Unidad",
+      titulo: "85 m² de construcción",
       caracteristicas: [
-        "85 m² de construcción",
         "3 recámaras",
         "Estancia · comedor",
         "Cocina",

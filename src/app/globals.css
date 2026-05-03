@@ -50,10 +50,10 @@ body {
 }
 
 .label-ui {
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.35em;
   text-transform: uppercase;
-  color: var(--color-primario);
+  color: var(--color-texto);
 }
 
 .glass {

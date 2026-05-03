@@ -88,8 +88,6 @@ export default function Inicio() {
             className="shrink-0 px-6 py-6 md:border-b flex-1 md:flex-none flex flex-col justify-center md:justify-start"
             style={{ borderColor: "var(--color-borde)" }}
           >
-            <p className="label-ui mb-5">{conjunto.titulo}</p>
-
             <div className="flex flex-col gap-4">
               {conjunto.highlights.map((h) => (
                 <div
