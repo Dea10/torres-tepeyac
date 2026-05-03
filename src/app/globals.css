@@ -50,7 +50,7 @@ body {
 }
 
 .label-ui {
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 0.35em;
   text-transform: uppercase;
   color: var(--color-texto);

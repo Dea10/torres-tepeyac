@@ -26,6 +26,12 @@ function Label({ text }: { text: string }) {
         className="absolute inset-x-0 bottom-0 h-14 pointer-events-none"
         style={{ background: "linear-gradient(to top, rgba(13,27,42,0.9), transparent)" }}
       />
+      <span
+        className="absolute bottom-3 left-4 label-media px-3 py-1.5 rounded-sm"
+        style={{ backgroundColor: "rgba(245,240,232,0.95)", color: "#1a1a1a" }}
+      >
+        {text}
+      </span>
     </>
   );
 }
@@ -38,7 +44,7 @@ function CeldaPortada({ src, onClick }: { src: string; onClick?: () => void }) {
         className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
       <Vignette />
-      <Label text="Llave en mano" />
+      <Label text="Propuestas de llave en mano" />
     </div>
   );
 }
@@ -104,7 +110,7 @@ function CeldaImg({ src, onClick }: { src: string; onClick?: () => void }) {
 function Bloque({ imagenes, baseIndex, onOpen }: { imagenes: readonly string[]; baseIndex: number; onOpen: (i: number) => void }) {
   return (
     <div
-      className="overflow-hidden pb-4 pl-2 pr-2 pt-16"
+      className="overflow-hidden pl-2 pr-2"
       style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", ...gap1 }}
     >
       {imagenes.map((id, i) => (
@@ -134,7 +140,7 @@ export default function Interiores() {
       <div className="h-full" style={{ backgroundColor: "var(--bg-neutro)" }}>
         <div
           className="h-full overflow-hidden"
-          style={{ display: "grid", gridTemplateRows: "60fr 40fr", ...gap1 }}
+          style={{ display: "grid", gridTemplateRows: "60fr 5fr 35fr", ...gap1 }}
         >
           {/* Parte superior: video portada + 4 espacios */}
           <div
@@ -154,6 +160,7 @@ export default function Interiores() {
           </div>
 
           {/* Parte inferior: 4 bloques × 3 imágenes */}
+          <div className="flex justify-center items-center text-lg tracking-[.35em] uppercase">Imágenes</div>
           <div
             className="overflow-hidden"
             style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", ...gap1 }}

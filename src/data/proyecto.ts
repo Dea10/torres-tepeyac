@@ -181,9 +181,19 @@ export const proyecto = {
   },
 
   tourVirtual: {
-    frames: [
-      { label: "3D",                    url: "https://share.d5render.com/user-hub/showreel/shortLink/YBG4m4" },
-      { label: "Recorrido 360° Exterior", url: "https://ths.li/42FErJr" },
+    paginas: [
+      {
+        frames: [
+          { label: "3D",                      url: "https://share.d5render.com/user-hub/showreel/shortLink/YBG4m4" },
+          { label: "Recorrido 360° Exterior", url: "https://ths.li/42FErJr" },
+        ],
+      },
+      {
+        frames: [
+          { label: "Tour 360°", url: "https://tour.panoee.net/luckstudio" },
+          { label: "3D Render",  url: "https://share.d5render.com/user-hub/showreel/shortLink/ZvbVaT" },
+        ],
+      },
     ],
   },
 
