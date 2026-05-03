@@ -258,6 +258,16 @@ export const proyecto = {
     ],
   },
 
+  disponibilidad: {
+    niveles: [
+      { id: "pb", label: "Planta Baja", imagen: "I_-_32_tkv3hg" },
+      { id: "n1", label: "Nivel 1",     imagen: "I_-_33_bjxrgv" },
+      { id: "n2", label: "Nivel 2",     imagen: "I_-_34_s1eqtf" },
+      { id: "n3", label: "Nivel 3",     imagen: "I_-_35_jkzqdy" },
+      { id: "n4", label: "Nivel 4",     imagen: "I_-_36_kl69cu" },
+    ],
+  },
+
   pitch: {
     titulo: "¿Tienes un desarrollo y quieres presentarlo así?",
     subtitulo: "Ofrecemos plataforma digital interactiva por proyecto",

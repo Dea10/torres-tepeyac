@@ -1,12 +1,5 @@
-import PlaceholderPage from "@/components/ui/PlaceholderPage";
+import Disponibilidad from "@/components/sections/Disponibilidad";
 
 export default function DisponibilidadPage() {
-  return (
-    <PlaceholderPage
-      numero="07"
-      titulo="Disponibilidad"
-      descripcion="Planos de planta, unidades disponibles y tabla de precios."
-      bg="var(--bg-neutro)"
-    />
-  );
+  return <Disponibilidad />;
 }
