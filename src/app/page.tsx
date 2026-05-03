@@ -24,29 +24,32 @@ export default function PortadaPage() {
         />
 
         {/* Contenido centrado */}
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-8 gap-6">
-          <p
-            className="text-[24px] tracking-[0.4em] uppercase"
-            style={{ color: "var(--color-texto)" }}
-          >
-            {proyecto.header1}
-          </p>
-          <h1
-            className="font-display text-6xl md:text-8xl font-light leading-none"
-            style={{ color: "var(--color-texto)" }}
-          >
-            {proyecto.nombre}
-          </h1>
-          <p
-            className="text-md tracking-widest uppercase max-w-sm"
-            style={{ color: "rgb(255, 255, 255)" }}
-          >
-            {proyecto.tagline}
-          </p>
+        <div className="relative z-10 h-full flex flex-col items-center justify-between px-8">
+          <div className="flex flex-col items-center text-center gap-6 py-32">
+            <p
+              className="text-[24px] tracking-[0.4em] uppercase"
+              style={{ color: "var(--color-texto)" }}
+            >
+              {proyecto.header1}
+            </p>
+            <h1
+              className="font-display text-6xl md:text-8xl font-light leading-none"
+              style={{ color: "var(--color-texto)" }}
+            >
+              {proyecto.nombre}
+            </h1>
+            <p
+              className="text-lg tracking-widest uppercase max-w-sm"
+              style={{ color: "rgb(255, 255, 255)" }}
+            >
+              {proyecto.tagline}
+            </p>
+            
+          </div>
           <Link
             href="/inicio"
-            className="mt-4 px-8 py-3 text-[11px] tracking-[0.3em] uppercase transition-all duration-300 hover:opacity-80"
-            style={{ backgroundColor: "var(--color-medio)", color: "var(--color-texto)" }}
+            className="mt-4 px-8 py-3 text-[18px] tracking-[0.3em] uppercase transition-all duration-300 hover:opacity-80 py-40"
+            style={{ backgroundColor: "", color: "var(--color-texto)" }}
           >
             Explorar
           </Link>
