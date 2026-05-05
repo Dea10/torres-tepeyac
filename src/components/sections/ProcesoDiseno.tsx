@@ -18,7 +18,7 @@ function CeldaVideo({
   onClick?: () => void;
 }) {
   return (
-    <div className={`relative overflow-hidden group${onClick ? " cursor-pointer" : ""}`} onClick={onClick}>
+    <div className={`relative overflow-hidden group${onClick ? " cursor-pointer" : ""}`} style={{ backgroundColor: "var(--bg-marino)" }} onClick={onClick}>
       <video
         src={video}
         autoPlay
@@ -31,13 +31,13 @@ function CeldaVideo({
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "radial-gradient(ellipse at center, transparent 30%, rgba(13,27,42,0.6) 100%)",
+          background: "radial-gradient(ellipse at center, transparent 30%, rgba(0,0,0,0.6) 100%)",
         }}
       />
       <div
         className="absolute inset-x-0 bottom-0 h-16 pointer-events-none"
         style={{
-          background: "linear-gradient(to top, rgba(13,27,42,0.85), transparent)",
+          
         }}
       />
       <span className="absolute bottom-3 left-4 label-media px-3 py-1.5 rounded-sm m-3"
@@ -64,7 +64,7 @@ function CeldaCompuesta({
   onClickInf?: () => void;
 }) {
   return (
-    <div className="relative overflow-hidden flex flex-col p-4" style={{ gap: "1px", background: "radial-gradient(transparent 30%, rgba(13,27,42,0.6) 100%)" }}>
+    <div className="relative overflow-hidden flex flex-col p-4" style={{ gap: "1px", backgroundColor: "var(--bg-marino)" }}>
       {/* Fila superior: dos imágenes */}
       <div className="flex flex-1 min-h-0" style={{ gap: "1px" }}>
         {[
@@ -94,14 +94,14 @@ function CeldaCompuesta({
       {/* Fila inferior: imagen completa */}
       <div
         className={`relative flex-1 min-h-0 overflow-hidden${onClickInf ? " cursor-pointer group" : ""}`}
-        style={{ backgroundColor: "var(--color-fondo)" }}
+        // style={{ backgroundColor: "var(--color-fondo)" }}
         onClick={onClickInf}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={imagenInf} alt="" className="absolute inset-0 w-full h-full object-contain transition-transform duration-500 group-hover:scale-105" />
         <div
           className="absolute inset-x-0 bottom-0 h-10 pointer-events-none"
-          style={{ background: "linear-gradient(to top, rgba(13,27,42,0.85), transparent)" }}
+          // style={{ background: "linear-gradient(to top, rgba(13,27,42,0.85), transparent)" }}
         />
         <span className="absolute bottom-3 left-4 label-media px-3 py-1.5 rounded-sm"
           style={{ backgroundColor: "rgba(245,240,232,0.95)", color: "#1a1a1a" }}>
@@ -140,7 +140,7 @@ export default function ProcesoDiseno() {
           className="h-full grid grid-cols-3 grid-rows-2 overflow-hidden"
           style={{
             gap: "1px",
-            backgroundColor: "var(--color-borde)",
+            backgroundColor: "white",
           }}
         >
           <CeldaVideo label={plantaTipo.label}   video={plantaTipo.video}   onClick={() => setActivo(0)} />

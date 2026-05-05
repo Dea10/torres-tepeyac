@@ -18,7 +18,7 @@ export default function TourVirtual() {
         {/* Header */}
         <div
           className="shrink-0 px-8 py-5 border-b flex items-center justify-between"
-          style={{ borderColor: "var(--color-borde)" }}
+          style={{ borderColor: "white" }}
         >
           <p className="label-ui">3D & Tour Virtual</p>
 
@@ -46,7 +46,7 @@ export default function TourVirtual() {
             <div key={frame.url} className="flex flex-col gap-3 min-h-0">
               <div
                 className="flex-1 min-h-0 overflow-hidden rounded-sm border"
-                style={{ borderColor: "var(--color-borde)" }}
+                style={{ borderColor: "white" }}
               >
                 <iframe
                   src={frame.url}

@@ -29,7 +29,7 @@ export default function Ubicacion() {
         {/* Top-left: Google Maps */}
         <div
           className="overflow-hidden border-b md:border-b-0 md:border-r md:col-start-1 md:row-start-1"
-          style={{ borderColor: "var(--color-borde)" }}
+          style={{ borderColor: "white" }}
         >
           <div className="p-4 w-full h-full">
             <div className="relative w-full h-full overflow-hidden rounded-sm">
@@ -55,12 +55,12 @@ export default function Ubicacion() {
           {/* Croquis | Proximidad */}
           <div
             className="grid grid-cols-2 border-b overflow-hidden"
-            style={{ flex: "2", borderColor: "var(--color-borde)" }}
+            style={{ flex: "2", borderColor: "white" }}
           >
             {/* Croquis — clickable */}
             <div
               className="relative border-r overflow-hidden cursor-pointer group"
-              style={{ borderColor: "var(--color-borde)" }}
+              style={{ borderColor: "white" }}
               onClick={() => setActivo(0)}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -75,7 +75,7 @@ export default function Ubicacion() {
                 <div
                   key={punto}
                   className="flex items-start gap-3 border-b pb-5 last:border-b-0 last:pb-0"
-                  style={{ borderColor: "var(--color-borde)" }}
+                  style={{ borderColor: "white" }}
                 >
                   <span className="label-ui">·</span>
                   <span className="label-ui">{punto}</span>
@@ -114,7 +114,7 @@ export default function Ubicacion() {
         {/* Bottom-left: Dirección */}
         <div
           className="px-4 py-5 border-t md:border-r md:col-start-1 md:row-start-2"
-          style={{ borderColor: "var(--color-borde)" }}
+          style={{ borderColor: "white" }}
         >
           <p className="label-ui mb-2">Dirección</p>
           <p

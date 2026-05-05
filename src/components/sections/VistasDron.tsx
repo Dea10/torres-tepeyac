@@ -21,11 +21,7 @@ function CeldaBanda({ src, label, invertida, onClick }: { src: string; label: st
   const banda = (
     <div
       className="flex items-center px-4"
-      style={{
-        backgroundColor: "var(--bg-marino)",
-        borderBottom: "1px solid var(--color-borde)",
-        borderTop: "1px solid var(--color-borde)",
-      }}
+      style={{ backgroundColor: "var(--bg-marino)" }}
     >
       <span className="label-ui">{label}</span>
     </div>
@@ -34,6 +30,7 @@ function CeldaBanda({ src, label, invertida, onClick }: { src: string; label: st
   const img = (
     <div
       className={`relative overflow-hidden${onClick ? " cursor-pointer group" : ""}`}
+      style={{ backgroundColor: "var(--bg-marino)" }}
       onClick={onClick}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -43,7 +40,7 @@ function CeldaBanda({ src, label, invertida, onClick }: { src: string; label: st
   );
 
   return (
-    <div style={{ display: "grid", gridTemplateRows: rows, gap: "1px", backgroundColor: "var(--bg-marino)" }}>
+    <div style={{ display: "grid", gridTemplateRows: rows, gap: "1px", backgroundColor: "white" }}>
       {invertida ? <>{img}{banda}</> : <>{banda}{img}</>}
     </div>
   );
@@ -72,13 +69,13 @@ export default function VistasDron() {
             display: "grid",
             gridTemplateRows: "1fr 1fr",
             gap: "1px",
-            backgroundColor: "var(--color-borde)",
+            backgroundColor: "white",
           }}
         >
           <CeldaBanda src={img20} label="Vista aérea — conjunto" invertida={false} onClick={() => setActivo(0)} />
           <div
             className="overflow-hidden"
-            style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1px", backgroundColor: "var(--color-borde)" }}
+            style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1px", backgroundColor: "white" }}
           >
             <CeldaBanda src={img19} label="Acceso principal" invertida={true}  onClick={() => setActivo(1)} />
             <CeldaBanda src={img21} label="Torre frontal"    invertida={false} onClick={() => setActivo(2)} />

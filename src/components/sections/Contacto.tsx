@@ -43,7 +43,7 @@ export default function Contacto() {
 
         <div
           className="w-full max-w-lg flex flex-col gap-3 px-8 py-6"
-          style={{ backgroundColor: "var(--color-superficie)", border: "1px solid var(--color-borde)" }}
+          style={{ backgroundColor: "#2a2a2a", border: "1px solid rgba(255,255,255,0.1)" }}
         >
           {pitch.servicios.map((servicio) => (
             <div key={servicio} className="flex items-center gap-3">
@@ -60,7 +60,7 @@ export default function Contacto() {
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-3 px-10 py-4 text-[11px] tracking-[0.25em] uppercase font-medium transition-opacity hover:opacity-80"
-          style={{ backgroundColor: "var(--color-primario)", color: "var(--color-fondo)" }}
+          style={{ backgroundColor: "rgba(245,240,232,0.95)", color: "var(--color-fondo)" }}
         >
           <MessageCircle size={14} />
           Solicitar Showroom para mi Proyecto

@@ -21,7 +21,7 @@ function CeldaImagen({ src, label, invertida, onClick }: { src: string; label: s
   const banda = (
     <div
       className="flex items-center px-4"
-      style={{ backgroundColor: "var(--bg-marino)", borderRight: "1px solid var(--color-borde)", borderTop: "1px solid var(--color-borde)", borderBottom: "1px solid var(--color-borde)" }}
+      style={{ backgroundColor: "var(--bg-marino)" }}
     >
       <span className="label-ui">{label}</span>
     </div>
@@ -30,16 +30,17 @@ function CeldaImagen({ src, label, invertida, onClick }: { src: string; label: s
   const img = (
     <div
       className={`relative overflow-hidden${onClick ? " cursor-pointer group" : ""}`}
+      style={{ backgroundColor: "var(--bg-marino)" }}
       onClick={onClick}
     >
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={src} alt={label} className="absolute inset-0 w-full h-full object-cover p-4 transition-transform duration-500 group-hover:scale-105" style={{ borderRight: "1px solid var(--color-borde)" }} />
+      <img src={src} alt={label} className="absolute inset-0 w-full h-full object-cover p-4 transition-transform duration-500 group-hover:scale-105" />
       <Vignette />
     </div>
   );
 
   return (
-    <div style={{ display: "grid", gridTemplateRows: rows, gap: "1px", backgroundColor: "var(--bg-marino)" }}>
+    <div style={{ display: "grid", gridTemplateRows: rows, gap: "1px", backgroundColor: "white" }}>
       {invertida ? <>{img}{banda}</> : <>{banda}{img}</>}
     </div>
   );
@@ -69,23 +70,19 @@ export default function Exteriores() {
             display: "grid",
             gridTemplateColumns: "1fr 1fr 2fr",
             gap: "1px",
-            backgroundColor: "var(--bg-marino)",
+            backgroundColor: "white",
           }}
         >
           <CeldaImagen src={img17} label="Fachada" invertida={true}  onClick={() => setActivo(0)} />
           <CeldaImagen src={img18} label="Detalle" invertida={false} onClick={() => setActivo(1)} />
 
           {/* Video panorámico */}
-          <div className="relative overflow-hidden cursor-pointer group" onClick={() => setActivo(2)}>
+          <div className="relative overflow-hidden cursor-pointer group" style={{ backgroundColor: "var(--bg-marino)" }} onClick={() => setActivo(2)}>
             <video
               src={video} autoPlay muted loop playsInline
               className="absolute inset-0 w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
             />
             <Vignette />
-            <div
-              className="absolute inset-x-0 bottom-0 h-14 pointer-events-none"
-              style={{ background: "linear-gradient(to top, rgba(13,27,42,0.9), transparent)" }}
-            />
             <span className="absolute bottom-3 left-4 label-ui">Vista aérea</span>
           </div>
         </div>
