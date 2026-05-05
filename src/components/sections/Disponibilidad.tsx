@@ -26,7 +26,7 @@ export default function Disponibilidad() {
         {/* Barra de navegación */}
         <div
           className="shrink-0 flex items-center justify-between px-6 py-3 border-b"
-          style={{ borderColor: "var(--color-borde)" }}
+          style={{ borderColor: "white" }}
         >
           {/* Botones de nivel */}
           <div className="flex items-center gap-1">
@@ -78,7 +78,7 @@ export default function Disponibilidad() {
         {/* Leyenda móvil */}
         <div
           className="md:hidden shrink-0 flex items-center justify-center gap-5 px-6 py-3 border-t"
-          style={{ borderColor: "var(--color-borde)" }}
+          style={{ borderColor: "white" }}
         >
           {LEYENDA.map((item) => (
             <div key={item.label} className="flex items-center gap-1.5">

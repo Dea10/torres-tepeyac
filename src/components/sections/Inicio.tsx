@@ -23,12 +23,7 @@ function VideoVivo({ src, className = "", onClick }: { src: string; className?: 
         playsInline
         className="absolute inset-0 w-full h-full object-cover p-6 transition-transform duration-500 group-hover:scale-105"
       />
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: "radial-gradient(ellipse at center, transparent 40%, rgba(13,27,42,0.55) 100%)",
-        }}
-      />
+      <div className="absolute inset-0 pointer-events-none" />
     </div>
   );
 }
@@ -55,13 +50,13 @@ export default function Inicio() {
         {/* Panel izquierdo */}
         <div
           className="md:col-span-6 flex flex-col border-b md:border-b-0 md:border-r overflow-hidden"
-          style={{ borderColor: "var(--color-borde)" }}
+          style={{ borderColor: "white" }}
         >
           <VideoVivo src={videoIzquierda} className="hidden md:block flex-1 min-h-0" onClick={() => setActivo(0)} />
 
           <div
             className="shrink-0 px-6 py-6 md:border-t flex-1 md:flex-none flex flex-col justify-center md:justify-start"
-            style={{ borderColor: "var(--color-borde)" }}
+            style={{ borderColor: "white" }}
           >
             <p className="label-ui mb-5">{unidad.titulo}</p>
             <ul className="grid grid-cols-2 gap-x-6 gap-y-2">
@@ -86,14 +81,14 @@ export default function Inicio() {
         <div className="md:col-span-6 flex flex-col overflow-hidden">
           <div
             className="shrink-0 px-6 py-6 md:border-b flex-1 md:flex-none flex flex-col justify-center md:justify-start"
-            style={{ borderColor: "var(--color-borde)" }}
+            style={{ borderColor: "white" }}
           >
             <div className="flex flex-col gap-4">
               {conjunto.highlights.map((h) => (
                 <div
                   key={h.etiqueta}
                   className="flex items-baseline gap-3 border-b pb-4 last:border-b-0 last:pb-0"
-                  style={{ borderColor: "var(--color-borde)" }}
+                  style={{ borderColor: "white" }}
                 >
                   <span
                     className="font-display text-5xl font-light leading-none"
@@ -113,7 +108,7 @@ export default function Inicio() {
 
               <p
                 className="text-sm tracking-widest uppercase pt-1"
-                style={{ color: "var(--color-primario)" }}
+                style={{ color: "var(--color-texto)" }}
               >
                 {conjunto.descripcion}
               </p>
