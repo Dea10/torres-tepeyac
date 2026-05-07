@@ -46,7 +46,7 @@ export default function PortadaPage() {
             </p>
             <Link
               href="/inicio"
-              className="mt-4 px-8 py-3 text-[18px] tracking-[0.3em] uppercase transition-all duration-300 hover:opacity-80 py-40"
+              className="mt-4 px-8 py-3 text-[18px] tracking-[0.3em] uppercase transition-all duration-300 hover:opacity-80"
               style={{ backgroundColor: "", color: "var(--color-texto)" }}
             >
               Explorar
