@@ -93,7 +93,7 @@ export default function Hero() {
 
       {/* Contenido sticky al centro */}
       <motion.div
-        className="sticky top-0 h-screen flex flex-col items-center justify-center text-center px-6"
+        className="relative sticky top-0 h-screen flex flex-col items-center justify-center text-center px-6"
         style={{ opacity: contentOpacity, y: textY }}
       >
         {/* Ubicación */}
@@ -168,30 +168,29 @@ export default function Hero() {
             Agendar Visita
           </a>
         </motion.div>
-      </motion.div>
 
-      {/* Indicador de scroll */}
-      <AnimatePresence>
-        {videoListo && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            style={{ opacity: contentOpacity }}
-            className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-          >
-            <span className="text-white/60 text-[10px] tracking-[0.4em] uppercase">Scroll</span>
-            <div className="w-px h-12 relative overflow-hidden" style={{ backgroundColor: "rgba(255,255,255,0.15)" }}>
-              <motion.div
-                className="absolute top-0 left-0 w-full"
-                style={{ backgroundColor: "var(--color-primario)" }}
-                animate={{ height: ["0%", "100%", "0%"], top: ["0%", "0%", "100%"] }}
-                transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-              />
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+        {/* Indicador de scroll */}
+        <AnimatePresence>
+          {videoListo && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+            >
+              <span className="text-white/60 text-[10px] tracking-[0.4em] uppercase">Scroll</span>
+              <div className="w-px h-12 relative overflow-hidden" style={{ backgroundColor: "rgba(255,255,255,0.15)" }}>
+                <motion.div
+                  className="absolute top-0 left-0 w-full"
+                  style={{ backgroundColor: "var(--color-primario)" }}
+                  animate={{ height: ["0%", "100%", "0%"], top: ["0%", "0%", "100%"] }}
+                  transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+                />
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.div>
     </section>
   );
 }
