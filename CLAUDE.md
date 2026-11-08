@@ -14,7 +14,7 @@ Showroom web para arquitecto Jorge. Un showroom por desarrollo inmobiliario. Vis
 - Los componentes de sección van en `src/components/sections/`
 - Los componentes reutilizables van en `src/components/ui/`
 - Mobile-first siempre — si algo se ve mal en móvil, se oculta con `hidden md:block`
-- Dark theme: fondo #0A0A0A, texto blanco, acento dorado #C9A96E
+- Dark theme. La paleta actual vive en `globals.css` (`--color-*`) y en `proyecto.tema` — ver ahí los valores vigentes, no aquí
 - Animaciones: fade-up al entrar en viewport con Framer Motion (`whileInView`)
 - No hay backend — todo es estático desde `proyecto.ts`
 
@@ -22,5 +22,12 @@ Showroom web para arquitecto Jorge. Un showroom por desarrollo inmobiliario. Vis
 - No crear páginas adicionales sin pedirlo
 - No instalar librerías sin consultarlo primero
 - Los feature flags en `proyecto.modulos` deciden qué secciones se renderizan
-- Los estilos de color vienen de las variables CSS definidas en `globals.css`, no hardcodeados
 - Siempre se crea una rama nueva para trabajar — nunca se pushea directo a main
+
+## Colores
+- Jorge ajusta los colores con frecuencia y por percepción (más claro, más oscuro), sin una regla de diseño detrás. No asumir que la paleta es definitiva
+- Preferir las variables CSS de `globals.css` cuando un color coincide con una de ellas, pero por ahora NO es obligatorio: hay valores hardcodeados (p. ej. `rgba(...)` en SideNav y overlays) y se aceptan mientras la paleta no se estabilice
+- No refactorizar colores hardcodeados a variables a menos que se pida
+
+## Pendientes
+- Hay componentes en `src/components/sections/` que ya no se usan (versiones anteriores). Se removerán más adelante — no borrarlos hasta que se indique
