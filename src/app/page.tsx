@@ -38,16 +38,10 @@ export default function PortadaPage() {
             >
               {proyecto.nombre}
             </h1>
-            <p
-              className="text-lg tracking-widest uppercase max-w-sm"
-              style={{ color: "rgb(255, 255, 255)" }}
-            >
-              {proyecto.tagline}
-            </p>
             <Link
               href="/inicio"
-              className="mt-4 px-8 py-3 text-[18px] tracking-[0.3em] uppercase transition-all duration-300 hover:opacity-80"
-              style={{ backgroundColor: "", color: "var(--color-texto)" }}
+              className="mt-4 px-8 py-3 text-[18px] tracking-[0.3em] uppercase border transition-all duration-300 hover:bg-white/10"
+              style={{ color: "var(--color-texto)", borderColor: "var(--color-texto)" }}
             >
               Explorar
             </Link>
