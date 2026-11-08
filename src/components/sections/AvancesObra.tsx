@@ -8,16 +8,6 @@ import { proyecto } from "@/data/proyecto";
 
 const BASE = "https://res.cloudinary.com/dv2vr7jc7/image/upload/v1777087518/";
 
-// 11 columnas iguales:
-// Fila A: imágenes en cols 1-2, 3-4, 5-6, 7-8, 9-10  →  col 11 vacía (fondo derecho)
-// Fila B: col 1 vacía (fondo izquierdo)  →  imágenes en cols 2-3, 4-5, 6-7, 8-9, 10-11
-const GRID: React.CSSProperties = {
-  display: "grid",
-  gridTemplateColumns: "repeat(11, 1fr)",
-  gridTemplateRows: "1fr",
-  gap: "4px",
-  overflow: "hidden",
-};
 
 function ImagenModal({
   imagenes,
@@ -124,8 +114,7 @@ export default function AvancesObra() {
   const prev   = useCallback(() => setActivo((i) => i === null ? null : (i - 1 + imagenes.length) % imagenes.length), [imagenes.length]);
   const next   = useCallback(() => setActivo((i) => i === null ? null : (i + 1) % imagenes.length), [imagenes.length]);
 
-  const filaA = imagenes.slice(0, 5);
-  const filaB = imagenes.slice(5, 10);
+  const { frames } = proyecto.avancesObra;
 
   return (
     <PageShell>
@@ -133,39 +122,44 @@ export default function AvancesObra() {
         className="h-full flex flex-col"
         style={{ backgroundColor: "var(--bg-marino)", padding: "16px", gap: "16px" }}
       >
-        {/* Fila superior: cols 1-10 ocupadas, col 11 = fondo vacío derecho */}
-        <div className="flex-1 min-h-0" style={GRID}>
-          {filaA.map((img, i) => (
-            <button
-              key={img.id}
-              className="relative overflow-hidden cursor-pointer group"
-              style={{ gridColumn: `${i * 2 + 1} / ${i * 2 + 3}` }}
-              onClick={() => setActivo(i)}
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={`${BASE}${img.id}`}
-                alt={img.label}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-              <span
-                className="absolute bottom-2 right-2 px-2 py-1 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-                style={{ backgroundColor: "rgba(245,240,232,0.95)", color: "#1a1a1a", fontSize: "10px", letterSpacing: "0.1em" }}
+        {/* Contenedores multimedia (~2/3) — en móvil se apilan */}
+        <div className="flex-[2] min-h-0 grid grid-cols-1 md:grid-cols-2 gap-6">
+          {frames.map((frame) => (
+            <div key={frame.url} className="flex flex-col gap-3 min-h-0">
+              <div
+                className="flex-1 min-h-0 overflow-hidden rounded-sm border"
+                style={{ borderColor: "white" }}
               >
-                {img.label}
-              </span>
-            </button>
+                <iframe
+                  src={frame.url}
+                  className="w-full h-full"
+                  style={{ border: 0 }}
+                  allow="autoplay; xr-spatial-tracking; gyroscope; accelerometer"
+                  allowFullScreen
+                />
+              </div>
+              {frame.label && (
+                <p
+                  className="shrink-0 text-center label-ui"
+                  style={{ color: "rgba(224,225,221,0.6)" }}
+                >
+                  {frame.label}
+                </p>
+              )}
+            </div>
           ))}
         </div>
 
-        {/* Fila inferior: col 1 = fondo vacío izquierdo, cols 2-11 ocupadas */}
-        <div className="flex-1 min-h-0" style={GRID}>
-          {filaB.map((img, i) => (
+        {/* Imágenes en una sola fila, todas visibles (~1/3) */}
+        <div
+          className="flex-1 min-h-0 grid overflow-hidden"
+          style={{ gridTemplateColumns: `repeat(${imagenes.length}, 1fr)`, gap: "4px" }}
+        >
+          {imagenes.map((img, i) => (
             <button
               key={img.id}
               className="relative overflow-hidden cursor-pointer group"
-              style={{ gridColumn: `${i * 2 + 2} / ${i * 2 + 4}` }}
-              onClick={() => setActivo(5 + i)}
+              onClick={() => setActivo(i)}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img

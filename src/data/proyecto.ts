@@ -184,14 +184,8 @@ export const proyecto = {
     paginas: [
       {
         frames: [
-          { label: "3D",                      url: "https://share.d5render.com/user-hub/showreel/shortLink/YBG4m4" },
-          { label: "Recorrido 360° Exterior", url: "https://ths.li/42FErJr" },
-        ],
-      },
-      {
-        frames: [
-          { label: "Tour 360°", url: "https://tour.panoee.net/luckstudio" },
-          { label: "3D Render",  url: "https://share.d5render.com/user-hub/showreel/shortLink/ZvbVaT" },
+          { label: "3D",                      url: "https://render-gs.d5render.com/personal-render?load=https://usa-ai.d5cdn.com/ai/gs/output/2047548609483337729/2047548609468100609_backup.splat&gsId=2047548609468100609" },
+          { label: "Recorrido 360° Exterior", url: "https://render-gs.d5render.com/personal-render?load=https://usa-ai.d5cdn.com/ai/gs/output/2049740970147373058/2049740970126401538_backup.ply&gsId=2049740970126401538" },
         ],
       },
     ],
@@ -254,6 +248,10 @@ export const proyecto = {
   },
 
   avancesObra: {
+    frames: [
+      { label: "", url: "https://tour.panoee.net/6a6fb8ccaf97663952b77fd5/4" },
+      { label: "", url: "https://www.youtube.com/embed/8vgmEt_xiQs?autoplay=1&mute=1" },
+    ],
     imagenes: [
       { id: "I-22_ycr7p7", label: "I-22" },
       { id: "I-23_klnbsh", label: "I-23" },

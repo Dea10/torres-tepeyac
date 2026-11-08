@@ -16,7 +16,7 @@ export const navItems = [
   { href: "/exteriores",        label: "Exteriores",         key: "exteriores"     },
   { href: "/disponibilidad",    label: "Disponibilidad",     key: "disponibilidad" },
   { href: "/vistas-con-dron",   label: "Vistas con Dron",    key: "vistasConDron"  },
-  { href: "/tour-virtual",      label: "3D & Tour Virtual",  key: "tourVirtual"    },
+  { href: "/tour-virtual",      label: "Maqueta virtual",    key: "tourVirtual"    },
   { href: "/avances-de-obra",   label: "Avances de Obra",    key: "avancesObra"    },
   { href: "/contacto",          label: "Contacto",           key: "contacto"       },
 ] as const;

@@ -20,9 +20,10 @@ export default function TourVirtual() {
           className="shrink-0 px-8 py-5 border-b flex items-center justify-between"
           style={{ borderColor: "white" }}
         >
-          <p className="label-ui">3D & Tour Virtual</p>
+          <p className="label-ui">Maqueta virtual</p>
 
-          {/* Tabs numerados */}
+          {/* Tabs numerados — solo si hay más de una página */}
+          {paginas.length > 1 && (
           <div className="flex items-center gap-1">
             {paginas.map((_, i) => (
               <button
@@ -38,6 +39,7 @@ export default function TourVirtual() {
               </button>
             ))}
           </div>
+          )}
         </div>
 
         {/* Frames de la página activa */}
