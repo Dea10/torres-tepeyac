@@ -39,12 +39,6 @@ export const proyecto = {
     tourVirtual:      true,
     avancesObra:      true,
     contacto:         true,
-    audioFondo:       true,
-  },
-
-  audioFondo: {
-    url:     "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1794107334/bg-audio_mgpuwu.mp3",
-    volumen: 0.35,   // volumen inicial (0 a 1)
   },
 
   hero: {

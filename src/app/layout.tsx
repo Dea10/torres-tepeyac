@@ -3,8 +3,6 @@ import { Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import { proyecto } from "@/data/proyecto";
 import SideNav from "@/components/ui/SideNav";
-import AudioFondo from "@/components/ui/AudioFondo";
-
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["300", "400", "500"],
@@ -36,9 +34,7 @@ export default function RootLayout({
           <main className="flex-1 h-screen overflow-hidden relative">
             {children}
           </main>
-        </div>
-        {proyecto.modulos.audioFondo && <AudioFondo />}
-      </body>
+        </div>      </body>
     </html>
   );
 }
