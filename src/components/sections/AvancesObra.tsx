@@ -122,10 +122,10 @@ export default function AvancesObra() {
         className="h-full flex flex-col"
         style={{ backgroundColor: "var(--bg-marino)", padding: "16px", gap: "16px" }}
       >
-        {/* Contenedores multimedia (~2/3) — en móvil se apilan */}
-        <div className="flex-[2] min-h-0 grid grid-cols-1 md:grid-cols-2 gap-6">
-          {frames.map((frame) => (
-            <div key={frame.url} className="flex flex-col gap-3 min-h-0">
+        {/* Contenedores multimedia (~2/3 de alto) — izquierdo 2/3 de ancho, derecho 1/3. En móvil se apilan */}
+        <div className="flex-[2] min-h-0 grid grid-cols-1 md:grid-cols-3 gap-6">
+          {frames.map((frame, i) => (
+            <div key={frame.url} className={`flex flex-col gap-3 min-h-0 ${i === 0 ? "md:col-span-2" : ""}`}>
               <div
                 className="flex-1 min-h-0 overflow-hidden rounded-sm border"
                 style={{ borderColor: "white" }}

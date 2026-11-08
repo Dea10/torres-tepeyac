@@ -250,7 +250,7 @@ export const proyecto = {
   avancesObra: {
     frames: [
       { label: "", url: "https://tour.panoee.net/6a6fb8ccaf97663952b77fd5/4" },
-      { label: "", url: "https://www.youtube.com/embed/8vgmEt_xiQs?autoplay=1&mute=1" },
+      { label: "", url: "https://www.youtube.com/embed/IkBbifTWTAc?autoplay=1&mute=1" },
     ],
     imagenes: [
       { id: "I-22_ycr7p7", label: "I-22" },
