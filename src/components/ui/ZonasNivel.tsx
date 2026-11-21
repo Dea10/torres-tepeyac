@@ -12,7 +12,10 @@ const ORDEN_ZONAS = ["T1-izq", "T1-der", "T2-izq", "T2-der", "T3-izq", "T3-der"]
 interface Props {
   zonas: ZonasData;
   unidades: Unidad[];
-  activa: string | null;
+  /** Depto bajo el mouse (solo se ilumina) */
+  hover: string | null;
+  /** Depto con la card abierta (se queda iluminado) */
+  seleccionada: string | null;
   onHover: (id: string | null) => void;
   onSelect: (id: string) => void;
   /** Muestra contornos e ids, y las coordenadas del click en la imagen */
@@ -27,7 +30,7 @@ const pct = (v: number, total: number) => `${(v / total) * 100}%`;
  * imagen original, así que escalan con ella en cualquier tamaño de pantalla.
  * Debe ir dentro de una caja con la misma proporción que la imagen.
  */
-export default function ZonasNivel({ zonas, unidades, activa, onHover, onSelect, calibrar = false }: Props) {
+export default function ZonasNivel({ zonas, unidades, hover, seleccionada, onHover, onSelect, calibrar = false }: Props) {
   const [punto, setPunto] = useState<string | null>(null);
 
   const medir = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -51,7 +54,7 @@ export default function ZonasNivel({ zonas, unidades, activa, onHover, onSelect,
           alto: zonas.alto,
         };
         const estado = estadoDe(u.estado);
-        const esActiva = activa === u.id;
+        const esActiva = hover === u.id || seleccionada === u.id;
         return (
           <div
             key={u.id}

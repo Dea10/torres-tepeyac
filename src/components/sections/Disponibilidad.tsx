@@ -87,20 +87,12 @@ export default function Disponibilidad({ nivelInicial, intro = false, calibrar =
   const nivel = niveles[activo];
   const unidades = resolverUnidades(nivel);
 
-  // ── Unidad activa (hover o fijada con click) ─────────────────
+  // ── Unidad: el hover solo ilumina; el click abre la card ─────
   const [hover, setHover] = useState<string | null>(null);
   const [fija, setFija] = useState<string | null>(null);
-  const timerHover = useRef<ReturnType<typeof setTimeout>>(undefined);
-  const idActiva = fija ?? hover;
-  const unidadActiva = unidades.find((u) => u.id === idActiva) ?? null;
-
-  const onHoverZona = (id: string | null) => {
-    clearTimeout(timerHover.current);
-    if (id) setHover(id);
-    // Pequeño retraso al salir, para poder llegar a la card
-    else timerHover.current = setTimeout(() => setHover(null), 300);
-  };
-  const onSelectZona = (id: string) => setFija((f) => (f === id ? null : id));
+  const unidadActiva = unidades.find((u) => u.id === fija) ?? null;
+  // Click en un depto abre su card (o la sustituye); click fuera la cierra
+  const onSelectZona = (id: string) => setFija(id);
 
   useEffect(() => {
     const h = (e: KeyboardEvent) => e.key === "Escape" && setFija(null);
@@ -239,8 +231,9 @@ export default function Disponibilidad({ nivelInicial, intro = false, calibrar =
                   <ZonasNivel
                     zonas={nivel.zonas}
                     unidades={unidades}
-                    activa={idActiva}
-                    onHover={onHoverZona}
+                    hover={hover}
+                    seleccionada={fija}
+                    onHover={setHover}
                     onSelect={onSelectZona}
                     calibrar={calibrar}
                   />
@@ -255,12 +248,10 @@ export default function Disponibilidad({ nivelInicial, intro = false, calibrar =
                         transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
                         className="absolute left-3 bottom-3 w-52 @[640px]:w-64 z-20"
                         onClick={(e) => e.stopPropagation()}
-                        onMouseEnter={() => clearTimeout(timerHover.current)}
-                        onMouseLeave={() => onHoverZona(null)}
                       >
                         <UnidadCard
                           unidad={unidadActiva}
-                          onClose={fija ? () => setFija(null) : undefined}
+                          onClose={() => setFija(null)}
                           className="shadow-2xl"
                           variante="plano"
                         />
