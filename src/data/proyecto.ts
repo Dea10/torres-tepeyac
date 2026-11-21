@@ -5,7 +5,12 @@ export const proyecto = {
   header1: "Desarrollo",
 
   portada: {
+    // Video de fondo de la portada (loop)
     video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/V-01_idmewv.mp4",
+    // Video que se abre en pantalla completa al dar click en Explorar
+    videoIntro: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1795303349/Depts_Intro_y9yeyj.mp4",
+    // Nivel de Disponibilidad al que "aterriza" el video al terminar
+    nivelDestino: "n4",
   },
 
   tema: {
@@ -267,12 +272,88 @@ export const proyecto = {
   },
 
   disponibilidad: {
+    // Tamaño original de las imágenes de nivel. Las zonas se miden en estas coordenadas,
+    // así que funcionan en cualquier tamaño de pantalla.
+    // Zonas por nivel (cada render tiene su propio encuadre):
+    //   cortes = 7 posiciones X que separan los 6 deptos (T1-izq, T1-der, T2-izq, …, T3-der)
+    //   y / alto = franja vertical de los deptos
+    // Para ajustarlas: abrir /disponibilidad?calibrar=1 y hacer click en la imagen para ver coordenadas.
+    tamanoImagen: { ancho: 2472, alto: 1728 },
+
+    // Datos comunes de las unidades (cada unidad puede sobreescribirlos)
+    unidadBase: {
+      costo: "$1,700,000",
+      superficie: "85 m²",
+      foto: "/assets/vista-master-room-01.png",
+    },
+    // Tour 360° según el lado del departamento (son espejo)
+    tours: {
+      izq: "https://tour.panoee.net/luckstudio/entrada-1",
+      der: "https://tour.panoee.net/6a6fd097944bdbd3e54d12f4/entrada",
+    },
+
+    // TODO: estados de ejemplo (N4 según el esbozo de Jorge); confirmar con Jorge
     niveles: [
-      { id: "pb", label: "Planta Baja", imagen: "I_-_32_tkv3hg" },
-      { id: "n1", label: "Nivel 1",     imagen: "I_-_33_bjxrgv" },
-      { id: "n2", label: "Nivel 2",     imagen: "I_-_34_s1eqtf" },
-      { id: "n3", label: "Nivel 3",     imagen: "I_-_35_jkzqdy" },
-      { id: "n4", label: "Nivel 4",     imagen: "I_-_36_kl69cu" },
+      {
+        id: "pb", label: "Planta Baja", imagen: "https://res.cloudinary.com/dv2vr7jc7/image/upload/v1795303334/NPB_p2l6uo.png",
+        zonas: { y: 454, alto: 367, cortes: [227, 573, 910, 1240, 1571, 1898, 2232] },
+        unidades: [
+          { zona: "T1-izq", id: "T1-01", estado: "disponible" },
+          { zona: "T1-der", id: "T1-02", estado: "apartado" },
+          { zona: "T2-izq", id: "T2-01", estado: "no-disponible" },
+          { zona: "T2-der", id: "T2-02", estado: "disponible" },
+          { zona: "T3-izq", id: "T3-01", estado: "disponible" },
+          { zona: "T3-der", id: "T3-02", estado: "apartado" },
+        ],
+      },
+      {
+        id: "n1", label: "Nivel 1", imagen: "https://res.cloudinary.com/dv2vr7jc7/image/upload/v1795298279/Nivel_1_snc577.png",
+        zonas: { y: 455, alto: 367, cortes: [200, 545, 889, 1234, 1581, 1920, 2265] },
+        unidades: [
+          { zona: "T1-izq", id: "T1-03", estado: "no-disponible" },
+          { zona: "T1-der", id: "T1-04", estado: "disponible" },
+          { zona: "T2-izq", id: "T2-03", estado: "disponible" },
+          { zona: "T2-der", id: "T2-04", estado: "apartado" },
+          { zona: "T3-izq", id: "T3-03", estado: "disponible" },
+          { zona: "T3-der", id: "T3-04", estado: "disponible" },
+        ],
+      },
+      {
+        id: "n2", label: "Nivel 2", imagen: "https://res.cloudinary.com/dv2vr7jc7/image/upload/v1795298280/Nivel_2_o0iyv5.png",
+        zonas: { y: 455, alto: 367, cortes: [200, 545, 889, 1234, 1581, 1920, 2265] },
+        unidades: [
+          { zona: "T1-izq", id: "T1-05", estado: "disponible" },
+          { zona: "T1-der", id: "T1-06", estado: "disponible" },
+          { zona: "T2-izq", id: "T2-05", estado: "apartado" },
+          { zona: "T2-der", id: "T2-06", estado: "no-disponible" },
+          { zona: "T3-izq", id: "T3-05", estado: "disponible" },
+          { zona: "T3-der", id: "T3-06", estado: "disponible" },
+        ],
+      },
+      {
+        id: "n3", label: "Nivel 3", imagen: "https://res.cloudinary.com/dv2vr7jc7/image/upload/v1795298280/Nivel_3_prqdck.png",
+        zonas: { y: 410, alto: 408, cortes: [129, 505, 870, 1234, 1602, 1963, 2340] },
+        unidades: [
+          { zona: "T1-izq", id: "T1-07", estado: "apartado" },
+          { zona: "T1-der", id: "T1-08", estado: "disponible" },
+          { zona: "T2-izq", id: "T2-07", estado: "disponible" },
+          { zona: "T2-der", id: "T2-08", estado: "disponible" },
+          { zona: "T3-izq", id: "T3-07", estado: "no-disponible" },
+          { zona: "T3-der", id: "T3-08", estado: "disponible" },
+        ],
+      },
+      {
+        id: "n4", label: "Nivel 4", imagen: "https://res.cloudinary.com/dv2vr7jc7/image/upload/v1795298279/Nivel_4_o4xvcc.png",
+        zonas: { y: 385, alto: 439, cortes: [41, 445, 838, 1236, 1637, 2028, 2431] },
+        unidades: [
+          { zona: "T1-izq", id: "T1-09", estado: "no-disponible" },
+          { zona: "T1-der", id: "T1-10", estado: "no-disponible" },
+          { zona: "T2-izq", id: "T2-09", estado: "disponible" },
+          { zona: "T2-der", id: "T2-10", estado: "disponible" },
+          { zona: "T3-izq", id: "T3-09", estado: "disponible" },
+          { zona: "T3-der", id: "T3-10", estado: "disponible" },
+        ],
+      },
     ],
   },
 
