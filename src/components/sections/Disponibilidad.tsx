@@ -98,7 +98,7 @@ export default function Disponibilidad({ nivelInicial, intro = false, calibrar =
     clearTimeout(timerHover.current);
     if (id) setHover(id);
     // Pequeño retraso al salir, para poder llegar a la card
-    else timerHover.current = setTimeout(() => setHover(null), 200);
+    else timerHover.current = setTimeout(() => setHover(null), 300);
   };
   const onSelectZona = (id: string) => setFija((f) => (f === id ? null : id));
 
