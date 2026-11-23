@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+/* Tailwind v4 quitó la manita por defecto de los botones: se restaura para todos */
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
+}
+
 @theme {
   /* Registrar las fuentes como utilidades de Tailwind v4 */
   --font-display: var(--font-cormorant), 'Georgia', serif;

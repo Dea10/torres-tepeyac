@@ -6,6 +6,11 @@ import { motion } from "framer-motion";
 interface Props {
   /** Video a reproducir en pantalla completa */
   src: string;
+  /**
+   * false = montado pero oculto, solo precargando el video mientras el usuario
+   * está en la portada. true = se muestra y arranca.
+   */
+  activo: boolean;
   /** Imagen que coincide con el último encuadre del video (match cut) */
   imagenDestino: string;
   /** Se llama cuando la imagen destino ya cubre toda la pantalla */
@@ -19,7 +24,7 @@ const DURACION_CORTE = 1.4; // segundos del crossfade video → imagen
  * del último frame del video hacia la imagen destino, para que la navegación
  * a la siguiente sección se sienta como una continuación del video.
  */
-export default function VideoIntro({ src, imagenDestino, onFinish }: Props) {
+export default function VideoIntro({ src, activo, imagenDestino, onFinish }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [aterrizando, setAterrizando] = useState(false);
   const yaAterrizo = useRef(false);
@@ -27,14 +32,17 @@ export default function VideoIntro({ src, imagenDestino, onFinish }: Props) {
   // Reproducir con audio (el click en "Explorar" cuenta como interacción del usuario)
   useEffect(() => {
     const video = videoRef.current;
-    if (!video) return;
+    if (!video || !activo) return;
     video.currentTime = 0;
     video.play().catch(() => {
       // Si el navegador bloquea el audio, reproducir en silencio
       video.muted = true;
       video.play().catch(() => {});
     });
-    // Precargar la imagen destino para que el corte no parpadee
+  }, [activo]);
+
+  // Precargar la imagen destino para que el corte no parpadee
+  useEffect(() => {
     const img = new Image();
     img.src = imagenDestino;
   }, [imagenDestino]);
@@ -58,23 +66,26 @@ export default function VideoIntro({ src, imagenDestino, onFinish }: Props) {
   }, []);
 
   useEffect(() => {
+    if (!activo) return;
     const h = (e: KeyboardEvent) => {
       if (e.key === "Escape") aterrizar();
     };
     window.addEventListener("keydown", h);
     return () => window.removeEventListener("keydown", h);
-  }, [aterrizar]);
+  }, [activo, aterrizar]);
 
   return (
     <motion.div
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      animate={{ opacity: activo ? 1 : 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed inset-0 z-50 bg-black"
+      className={`fixed inset-0 z-50 bg-black ${activo ? "" : "invisible pointer-events-none"}`}
+      aria-hidden={!activo}
     >
       <video
         ref={videoRef}
         src={src}
+        preload="auto"
         playsInline
         onEnded={aterrizar}
         className="absolute inset-0 w-full h-full object-cover"
@@ -94,7 +105,7 @@ export default function VideoIntro({ src, imagenDestino, onFinish }: Props) {
       )}
 
       {/* Saltar */}
-      {!aterrizando && (
+      {activo && !aterrizando && (
         <motion.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

@@ -6,9 +6,9 @@ export const proyecto = {
 
   portada: {
     // Video de fondo de la portada (loop)
-    video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1777087518/V-01_idmewv.mp4",
+    video: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1795392093/Depts_Portada_web_drnk0z.mp4",
     // Video que se abre en pantalla completa al dar click en Explorar
-    videoIntro: "https://res.cloudinary.com/dv2vr7jc7/video/upload/v1795303349/Depts_Intro_y9yeyj.mp4",
+    videoIntro: "https://res.cloudinary.com/dv2vr7jc7/video/upload/q_auto,vc_auto/v1795303349/Depts_Intro_y9yeyj.mp4",
     // Nivel de Disponibilidad al que "aterriza" el video al terminar
     nivelDestino: "n4",
   },
@@ -255,7 +255,12 @@ export const proyecto = {
   avancesObra: {
     frames: [
       { label: "", url: "https://tour.panoee.net/6a6fb8ccaf97663952b77fd5/4" },
-      { label: "", url: "https://www.youtube.com/embed/IkBbifTWTAc?autoplay=1&mute=1" },
+      {
+        label: "",
+        url: "https://www.youtube.com/embed/cM2TgHALahI?autoplay=1&mute=1",
+        // Botón debajo del video: abre el recorrido en pantalla completa
+        boton: { label: "Recorrido 360°", url: "https://www.youtube.com/embed/TDzSCHC2gMU?start=19&autoplay=1" },
+      },
     ],
     imagenes: [
       { id: "I-22_ycr7p7", label: "I-22" },
@@ -295,7 +300,7 @@ export const proyecto = {
     // TODO: estados de ejemplo (N4 según el esbozo de Jorge); confirmar con Jorge
     niveles: [
       {
-        id: "pb", label: "Planta Baja", imagen: "https://res.cloudinary.com/dv2vr7jc7/image/upload/v1795303334/NPB_p2l6uo.png",
+        id: "pb", label: "Planta Baja", imagen: "https://res.cloudinary.com/dv2vr7jc7/image/upload/f_auto,q_auto/v1795303334/NPB_p2l6uo.png",
         zonas: { y: 454, alto: 367, cortes: [227, 573, 910, 1240, 1571, 1898, 2232] },
         unidades: [
           { zona: "T1-izq", id: "T1-01", estado: "disponible" },
@@ -307,7 +312,7 @@ export const proyecto = {
         ],
       },
       {
-        id: "n1", label: "Nivel 1", imagen: "https://res.cloudinary.com/dv2vr7jc7/image/upload/v1795298279/Nivel_1_snc577.png",
+        id: "n1", label: "Nivel 1", imagen: "https://res.cloudinary.com/dv2vr7jc7/image/upload/f_auto,q_auto/v1795298279/Nivel_1_snc577.png",
         zonas: { y: 455, alto: 367, cortes: [200, 545, 889, 1234, 1581, 1920, 2265] },
         unidades: [
           { zona: "T1-izq", id: "T1-03", estado: "no-disponible" },
@@ -319,7 +324,7 @@ export const proyecto = {
         ],
       },
       {
-        id: "n2", label: "Nivel 2", imagen: "https://res.cloudinary.com/dv2vr7jc7/image/upload/v1795298280/Nivel_2_o0iyv5.png",
+        id: "n2", label: "Nivel 2", imagen: "https://res.cloudinary.com/dv2vr7jc7/image/upload/f_auto,q_auto/v1795298280/Nivel_2_o0iyv5.png",
         zonas: { y: 455, alto: 367, cortes: [200, 545, 889, 1234, 1581, 1920, 2265] },
         unidades: [
           { zona: "T1-izq", id: "T1-05", estado: "disponible" },
@@ -331,7 +336,7 @@ export const proyecto = {
         ],
       },
       {
-        id: "n3", label: "Nivel 3", imagen: "https://res.cloudinary.com/dv2vr7jc7/image/upload/v1795298280/Nivel_3_prqdck.png",
+        id: "n3", label: "Nivel 3", imagen: "https://res.cloudinary.com/dv2vr7jc7/image/upload/f_auto,q_auto/v1795298280/Nivel_3_prqdck.png",
         zonas: { y: 410, alto: 408, cortes: [129, 505, 870, 1234, 1602, 1963, 2340] },
         unidades: [
           { zona: "T1-izq", id: "T1-07", estado: "apartado" },
@@ -343,7 +348,7 @@ export const proyecto = {
         ],
       },
       {
-        id: "n4", label: "Nivel 4", imagen: "https://res.cloudinary.com/dv2vr7jc7/image/upload/v1795298279/Nivel_4_o4xvcc.png",
+        id: "n4", label: "Nivel 4", imagen: "https://res.cloudinary.com/dv2vr7jc7/image/upload/f_auto,q_auto/v1795298279/Nivel_4_o4xvcc.png",
         zonas: { y: 385, alto: 439, cortes: [41, 445, 838, 1236, 1637, 2028, 2431] },
         unidades: [
           { zona: "T1-izq", id: "T1-09", estado: "no-disponible" },

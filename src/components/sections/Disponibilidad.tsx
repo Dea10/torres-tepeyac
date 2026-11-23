@@ -15,48 +15,16 @@ const LEYENDA = [
 
 const EASE = [0.65, 0, 0.35, 1] as const;
 
-/** Duración del "viaje": más pisos = viaje más largo */
-const duracionViaje = (pisos: number) => 0.9 + 0.15 * pisos;
-
-type Viaje = { dir: number; pisos: number };
-
 /*
- * Efecto "atravesar el piso" (zoom-through con crossfade):
- * - Bajar (dir < 0): la cámara desciende. El piso actual crece hacia la cámara
- *   y se desvanece (lo atraviesas) mientras el de abajo aparece desde lejos.
- * - Subir (dir > 0): al revés. El piso actual se aleja y se desvanece
- *   mientras el de arriba se materializa desde cerca.
- * Ambos pisos se animan al mismo tiempo (se encima uno sobre otro).
+ * Fundido cruzado entre niveles: el nuevo piso aparece encima del anterior con
+ * un zoom muy leve (1.03 → 1) mientras el anterior se desvanece.
  */
-const CERCA = 1.6;  // escala "pegado a la cámara"
-const LEJOS = 0.7;  // escala "a lo lejos"
+const DURACION_FUNDIDO = 0.6;
 
 const variantesPiso: Variants = {
-  entrar: ({ dir }: Viaje) => ({
-    scale: dir > 0 ? CERCA : LEJOS,
-    opacity: 0,
-    filter: "blur(10px)",
-  }),
-  centro: ({ pisos }: Viaje) => ({
-    scale: 1,
-    opacity: 1,
-    filter: "blur(0px)",
-    transition: {
-      duration: duracionViaje(pisos),
-      ease: EASE,
-      opacity: { duration: duracionViaje(pisos) * 0.7, delay: duracionViaje(pisos) * 0.3, ease: "easeOut" },
-    },
-  }),
-  salir: ({ dir, pisos }: Viaje) => ({
-    scale: dir > 0 ? LEJOS : CERCA,
-    opacity: 0,
-    filter: "blur(10px)",
-    transition: {
-      duration: duracionViaje(pisos),
-      ease: EASE,
-      opacity: { duration: duracionViaje(pisos) * 0.7, ease: "easeIn" },
-    },
-  }),
+  entrar: { opacity: 0, scale: 1.03 },
+  centro: { opacity: 1, scale: 1, transition: { duration: DURACION_FUNDIDO, ease: EASE } },
+  salir: { opacity: 0, transition: { duration: DURACION_FUNDIDO, ease: EASE } },
 };
 
 const TAM = proyecto.disponibilidad.tamanoImagen;
@@ -82,7 +50,6 @@ export default function Disponibilidad({ nivelInicial, intro = false, calibrar =
   })();
 
   const [activo, setActivo] = useState(indiceInicial);
-  const [viaje, setViaje] = useState<Viaje>({ dir: 0, pisos: 0 });
   const [animando, setAnimando] = useState(false);
   const nivel = niveles[activo];
   const unidades = resolverUnidades(nivel);
@@ -99,6 +66,17 @@ export default function Disponibilidad({ nivelInicial, intro = false, calibrar =
     window.addEventListener("keydown", h);
     return () => window.removeEventListener("keydown", h);
   }, []);
+
+  // Precargar y decodificar todos los niveles (desktop) para que al cambiar de
+  // piso la imagen ya esté lista y no se vea cómo se va pintando
+  useEffect(() => {
+    if (!window.matchMedia("(min-width: 768px)").matches) return;
+    niveles.forEach((n) => {
+      const img = new Image();
+      img.src = n.imagen;
+      img.decode().catch(() => {});
+    });
+  }, [niveles]);
 
   // ── Aterrizaje desde el video ────────────────────────────────
   const [introActiva, setIntroActiva] = useState(intro);
@@ -132,7 +110,6 @@ export default function Disponibilidad({ nivelInicial, intro = false, calibrar =
 
   const cambiarNivel = (i: number) => {
     if (i === activo || animando || introActiva) return;
-    setViaje({ dir: Math.sign(i - activo), pisos: Math.abs(i - activo) });
     setAnimando(true);
     setActivo(i);
     setHover(null);
@@ -165,7 +142,7 @@ export default function Disponibilidad({ nivelInicial, intro = false, calibrar =
                 <button
                   key={n.id}
                   onClick={() => cambiarNivel(i)}
-                  className="shrink-0 px-4 py-2 rounded-sm transition-all duration-200 text-[14px] tracking-[0.2em] uppercase"
+                  className={`shrink-0 px-4 py-2 rounded-sm transition-all duration-200 text-[14px] tracking-[0.2em] uppercase ${activo === i ? "" : "hover:!bg-white/10 hover:!text-[var(--color-texto)]"}`}
                   style={{
                     backgroundColor: activo === i ? "var(--color-fondo)" : "transparent",
                     color: activo === i ? "var(--color-texto)" : "var(--color-primario)",
@@ -195,17 +172,16 @@ export default function Disponibilidad({ nivelInicial, intro = false, calibrar =
             </div>
           </motion.div>
 
-          {/* Imagen del nivel con transición de elevador */}
+          {/* Imagen del nivel con fundido cruzado */}
           <div className="hidden md:block relative flex-1 min-h-0 overflow-hidden" onClick={() => setFija(null)}>
             {/* Área de referencia para calcular el aterrizaje */}
             <div ref={slotRef} className="absolute inset-4 md:right-24 pointer-events-none" />
 
             {/* Oculto mientras la capa de aterrizaje cubre la pantalla */}
             <div className="absolute inset-0" style={{ opacity: introActiva ? 0 : 1 }}>
-            <AnimatePresence initial={false} custom={viaje}>
+            <AnimatePresence initial={false}>
               <motion.div
                 key={nivel.id}
-                custom={viaje}
                 variants={variantesPiso}
                 initial="entrar"
                 animate="centro"
@@ -275,7 +251,7 @@ export default function Disponibilidad({ nivelInicial, intro = false, calibrar =
                   key={n.id}
                   onClick={() => cambiarNivel(i)}
                   aria-label={n.label}
-                  className="relative w-12 h-12 flex items-center justify-center text-[13px] tracking-[0.15em]"
+                  className={`relative w-12 h-12 flex items-center justify-center text-[13px] tracking-[0.15em] transition-colors duration-200 ${activo === i ? "" : "hover:!text-[var(--color-texto)]"}`}
                   style={{ color: activo === i ? "var(--color-texto)" : "var(--color-primario)" }}
                 >
                   {activo === i && (
@@ -283,7 +259,7 @@ export default function Disponibilidad({ nivelInicial, intro = false, calibrar =
                       layoutId="elevador-marcador"
                       className="absolute inset-1 rounded-full border"
                       style={{ borderColor: "var(--color-texto)" }}
-                      transition={{ duration: duracionViaje(viaje.pisos), ease: EASE }}
+                      transition={{ duration: DURACION_FUNDIDO, ease: EASE }}
                     />
                   )}
                   <span className="relative">{etiquetaCorta(n.id)}</span>
