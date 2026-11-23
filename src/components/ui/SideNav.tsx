@@ -136,7 +136,7 @@ export default function SideNav() {
       <div className="md:hidden">
         <button
           onClick={() => setOpen(true)}
-          className="fixed top-4 left-4 z-50 p-2 rounded-sm"
+          className="fixed top-4 left-4 z-50 p-2 rounded-sm transition-opacity duration-200 hover:opacity-80"
           style={{ backgroundColor: "var(--color-texto)", color: "var(--color-fondo)" }}
           aria-label="Abrir menú"
         >
